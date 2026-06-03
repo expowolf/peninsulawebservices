@@ -3,31 +3,26 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
   body {
-    @apply font-sans text-slate-800 antialiased bg-white;
+    @apply font-sans bg-black text-stone-100 antialiased;
+    font-feature-settings: "ss01", "cv11";
   }
+  h1, h2, h3 { @apply tracking-tight; }
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg
-           bg-accent text-navy-900 font-semibold shadow-lg shadow-accent/20
-           hover:bg-cyan-400 hover:shadow-xl hover:-translate-y-0.5
-           transition-all duration-300 ease-out;
+  .btn {
+    @apply inline-flex items-center gap-2 px-6 py-3 text-sm font-medium uppercase tracking-[0.18em]
+           border transition-colors duration-200;
   }
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg
-           bg-white/10 text-white font-semibold border border-white/20
-           backdrop-blur hover:bg-white/20 hover:-translate-y-0.5
-           transition-all duration-300 ease-out;
-  }
-  .section-padding {
-    @apply py-20 md:py-28 px-6 md:px-10;
-  }
-  .container-max {
-    @apply max-w-6xl mx-auto;
-  }
+  .btn-light { @apply btn bg-stone-100 text-black border-stone-100 hover:bg-transparent hover:text-stone-100; }
+  .btn-ghost { @apply btn bg-transparent text-stone-100 border-stone-700 hover:border-stone-100; }
+
+  .container-x { @apply max-w-7xl mx-auto px-6 md:px-12; }
+  .page { @apply container-x py-20 md:py-28; }
+
+  .rule { @apply border-stone-800; }
+  .eyebrow { @apply text-[11px] font-medium uppercase tracking-[0.28em] text-stone-500; }
+  .display { @apply font-semibold leading-[1.05] tracking-tight; }
 }
