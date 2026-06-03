@@ -1,58 +1,79 @@
-import { ArrowUpRight } from 'lucide-react';
-
-const principles = [
-  ['01', 'Local-first', 'Built for Door County operators — not templated for a generic market.'],
-  ['02', 'Marketing-led', 'NWTC-trained strategy informs every layout, headline, and call-to-action.'],
-  ['03', 'Modern stack', 'Fast, accessible, AI-ready websites that hold up for years, not months.'],
-];
+import { HeroImage, RestaurantImage, ShopImage } from '../components/ImagePlaceholder.jsx';
 
 export default function Home() {
   return (
-    <>
-      <section className="container-x pt-10 md:pt-20 pb-24 md:pb-32 border-b rule">
-        <p className="eyebrow mb-8">Sturgeon Bay · Wisconsin · Est. 2025</p>
-        <h1 className="display font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl">
-          Next-generation websites &amp; AI for the businesses of Door County.
-        </h1>
-        <div className="mt-12 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-          <p className="text-stone-400 text-lg md:text-xl max-w-xl leading-relaxed">
-            An independent studio combining engineering and marketing to give local
-            small businesses an unfair advantage online.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="#/contact" className="btn-light">Get a quote <ArrowUpRight className="w-4 h-4" /></a>
-            <a href="#/services" className="btn-ghost">Services</a>
+    <div>
+      {/* Hero */}
+      <section className="bg-blue-50 py-12 md:py-20">
+        <div className="container-x grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+              Your business deserves a great website.
+            </h1>
+            <p className="text-lg text-slate-700 mb-8">
+              We build fast, modern websites that help restaurants, shops, and local services
+              in Door County get found and win more customers.
+            </p>
+            <div className="flex gap-4">
+              <a href="#/contact" className="btn-primary">Get Started</a>
+              <a href="#/services" className="btn-secondary">Learn More</a>
+            </div>
+          </div>
+          <div className="h-64 md:h-80">
+            <HeroImage />
           </div>
         </div>
       </section>
 
-      <section className="container-x py-24 border-b rule">
-        <div className="grid md:grid-cols-3 gap-px bg-stone-800 border rule">
-          {principles.map(([num, title, copy]) => (
-            <div key={num} className="bg-black p-10">
-              <p className="eyebrow mb-6">{num}</p>
-              <h3 className="text-2xl font-display mb-3">{title}</h3>
-              <p className="text-stone-400 leading-relaxed">{copy}</p>
+      {/* Services preview */}
+      <section className="py-16 md:py-24">
+        <div className="container-x">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12">What We Do</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="border-l-4 border-blue-700 pl-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Web Design</h3>
+              <p className="text-slate-700">
+                Beautiful, fast websites that work on phones, tablets, and desktops.
+              </p>
             </div>
-          ))}
+            <div className="border-l-4 border-blue-700 pl-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">AI Tools</h3>
+              <p className="text-slate-700">
+                Chatbots, automation, and smart tools that save you time.
+              </p>
+            </div>
+            <div className="border-l-4 border-blue-700 pl-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Local SEO</h3>
+              <p className="text-slate-700">
+                Help customers in Door County find you on Google.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="container-x py-24 grid md:grid-cols-12 gap-10 items-end">
-        <div className="md:col-span-7">
-          <p className="eyebrow mb-6">Selected work</p>
-          <h2 className="display font-display text-4xl md:text-6xl">
-            Websites built to convert visitors into customers.
-          </h2>
-        </div>
-        <div className="md:col-span-5 text-stone-400 leading-relaxed">
-          From restaurants on 3rd Avenue to lodging in Fish Creek and shops in
-          Sister Bay — we build sites engineered for clarity, speed, and bookings.
-          <a href="#/contact" className="block mt-6 text-stone-100 underline underline-offset-4 decoration-stone-600 hover:decoration-stone-100">
-            Start a project →
-          </a>
+      {/* Examples */}
+      <section className="py-16 md:py-24 bg-slate-50">
+        <div className="container-x">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12">For All Kinds of Businesses</h2>
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="bg-white p-6 rounded border border-slate-200">
+              <div className="h-48 bg-orange-50 rounded mb-4 overflow-hidden">
+                <RestaurantImage />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Restaurants</h3>
+              <p className="text-slate-600 mt-2">Menus, reservations, reviews — online.</p>
+            </div>
+            <div className="bg-white p-6 rounded border border-slate-200">
+              <div className="h-48 bg-purple-50 rounded mb-4 overflow-hidden">
+                <ShopImage />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Shops & Services</h3>
+              <p className="text-slate-600 mt-2">Show off your work, get discovered.</p>
+            </div>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

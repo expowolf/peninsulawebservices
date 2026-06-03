@@ -23,9 +23,9 @@ export default function App() {
   const Page = routes[path] ?? Home;
 
   return (
-    <div className="min-h-screen flex flex-col bg-black text-stone-100 selection:bg-stone-100 selection:text-black">
+    <div className="min-h-screen flex flex-col bg-cream text-slate-800">
       <Navbar current={path} />
-      <main className="flex-1 pt-20">
+      <main className="flex-1">
         <Page />
       </main>
       <Footer />

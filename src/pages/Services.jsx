@@ -1,62 +1,49 @@
 const services = [
   {
-    n: '01',
-    title: 'Web Design & Development',
-    summary: 'Custom-built websites engineered for performance, SEO, and conversion.',
-    items: ['Mobile-first architecture', 'Sub-second load targets', 'On-page SEO', 'Analytics & CRM integration'],
+    title: 'Custom Web Design',
+    desc: 'We build websites from scratch for your business — not templates, not builders. Fast, mobile-friendly, and optimized for Google.',
+    features: ['Mobile-first', 'Fast load times', 'SEO-ready', 'Easy to maintain'],
   },
   {
-    n: '02',
-    title: 'AI Automation & Tools',
-    summary: 'Practical AI implementations that remove busywork and create leverage.',
-    items: ['Customer-service chatbots', 'Workflow automations', 'Content & email generation', 'Custom internal tools'],
+    title: 'AI & Automation',
+    desc: 'Smart tools that handle customer questions, send emails, and save you hours every week doing the boring stuff.',
+    features: ['Chatbots', 'Email automation', 'Lead capture', 'Custom tools'],
   },
   {
-    n: '03',
-    title: 'Local Marketing & SEO',
-    summary: 'NWTC-trained strategy focused on the Door County market and tourism economy.',
-    items: ['Google Business optimization', 'Local keyword research', 'Reviews & reputation', 'Seasonal campaign planning'],
+    title: 'Local Marketing',
+    desc: 'We know Door County. Help customers find you on Google Maps, manage your reviews, and plan campaigns that work.',
+    features: ['Google optimization', 'Local SEO', 'Reviews management', 'Analytics'],
   },
 ];
 
 export default function Services() {
   return (
     <div className="page">
-      <header className="grid md:grid-cols-12 gap-10 pb-20 border-b rule">
-        <div className="md:col-span-7">
-          <p className="eyebrow mb-6">Services</p>
-          <h1 className="display font-display text-5xl md:text-7xl">
-            Three disciplines. One outcome — more customers.
-          </h1>
-        </div>
-        <p className="md:col-span-5 text-stone-400 text-lg leading-relaxed md:pb-2">
-          Engagements are scoped to the business, not packaged into tiers. Engineering,
-          AI, and marketing — chosen and combined to fit the work in front of you.
-        </p>
-      </header>
+      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Services</h1>
+      <p className="text-xl text-slate-600 mb-16 max-w-3xl">
+        Three core services. All focused on one thing: helping your business win more customers online.
+      </p>
 
-      <div className="grid md:grid-cols-3 gap-px bg-stone-800 border rule border-t-0">
-        {services.map(({ n, title, summary, items }) => (
-          <article key={n} className="bg-black p-10 flex flex-col">
-            <p className="eyebrow mb-8">{n} / Service</p>
-            <h2 className="text-3xl font-display mb-4">{title}</h2>
-            <p className="text-stone-400 leading-relaxed mb-8">{summary}</p>
-            <ul className="mt-auto space-y-3 pt-8 border-t rule">
-              {items.map((it) => (
-                <li key={it} className="text-sm text-stone-300 flex gap-3">
-                  <span className="text-stone-600">—</span>{it}
+      <div className="grid md:grid-cols-3 gap-8">
+        {services.map(({ title, desc, features }) => (
+          <div key={title} className="bg-white p-8 rounded border border-slate-200 shadow-sm hover:shadow-md transition">
+            <h3 className="text-2xl font-bold text-blue-700 mb-3">{title}</h3>
+            <p className="text-slate-700 mb-6 leading-relaxed">{desc}</p>
+            <ul className="space-y-2">
+              {features.map((f) => (
+                <li key={f} className="text-slate-700 flex gap-2">
+                  <span className="text-blue-700">✓</span> {f}
                 </li>
               ))}
             </ul>
-          </article>
+          </div>
         ))}
       </div>
 
-      <div className="mt-24 flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-12 border-t rule">
-        <h3 className="text-2xl md:text-3xl font-display max-w-xl">
-          Tell me about your business — I'll respond within 24 hours.
-        </h3>
-        <a href="#/contact" className="btn-light w-fit">Start a project</a>
+      <div className="mt-16 bg-blue-50 p-10 rounded text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-3">Ready to grow?</h2>
+        <p className="text-slate-700 mb-6">Let's talk about what your business needs.</p>
+        <a href="#/contact" className="btn-primary">Get a Free Quote</a>
       </div>
     </div>
   );

@@ -13,22 +13,20 @@ export default function Navbar({ current }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur-md border-b rule">
-      <nav className="container-x flex items-center justify-between h-20">
-        <a href="#/" className="flex items-center gap-3 group">
-          <Logo />
-          <span className="hidden sm:block text-sm font-medium tracking-[0.22em] uppercase text-stone-100">
-            Peninsula <span className="text-stone-500">/</span> Web Services
-          </span>
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <nav className="container-x flex items-center justify-between h-16">
+        <a href="#/" className="flex items-center gap-2">
+          <Logo size={32} />
+          <span className="hidden sm:block font-bold text-blue-700 text-sm">Peninsula Web Services</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.path}>
               <a
                 href={l.href}
-                className={`text-xs uppercase tracking-[0.22em] transition-colors ${
-                  current === l.path ? 'text-stone-100' : 'text-stone-500 hover:text-stone-100'
+                className={`font-medium text-sm transition ${
+                  current === l.path ? 'text-blue-700' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {l.label}
@@ -36,37 +34,32 @@ export default function Navbar({ current }) {
             </li>
           ))}
           <li>
-            <a href="#/contact" className="btn-light !py-2 !px-4 text-[11px]">
-              Start a project
+            <a href="#/contact" className="btn-primary">
+              Get a Quote
             </a>
           </li>
         </ul>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-stone-100 p-2 border rule"
-          aria-label="Menu"
-        >
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        <button onClick={() => setOpen((v) => !v)} className="md:hidden text-slate-700 p-1">
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </nav>
 
       {open && (
-        <div className="md:hidden border-t rule bg-black">
-          <ul className="container-x py-6 flex flex-col gap-5">
+        <div className="md:hidden bg-white border-t">
+          <ul className="container-x py-4 flex flex-col gap-3">
             {links.map((l) => (
               <li key={l.path}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className={`block text-sm uppercase tracking-[0.22em] ${
-                    current === l.path ? 'text-stone-100' : 'text-stone-400'
-                  }`}
-                >
+                <a href={l.href} onClick={() => setOpen(false)} className="block py-2 font-medium text-slate-700">
                   {l.label}
                 </a>
               </li>
             ))}
+            <li>
+              <a href="#/contact" onClick={() => setOpen(false)} className="btn-primary w-full justify-center">
+                Get a Quote
+              </a>
+            </li>
           </ul>
         </div>
       )}

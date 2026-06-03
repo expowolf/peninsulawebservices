@@ -1,67 +1,53 @@
-const facts = [
-  ['Founded', '2025'],
-  ['Based', 'Sturgeon Bay, WI'],
-  ['Training', 'NWTC Marketing'],
-  ['Focus', 'Door County SMBs'],
-];
+import { TeamImage } from '../components/ImagePlaceholder.jsx';
 
 export default function About() {
   return (
     <div className="page">
-      <header className="pb-20 border-b rule">
-        <p className="eyebrow mb-6">About</p>
-        <h1 className="display font-display text-5xl md:text-7xl max-w-4xl">
-          Local roots. Modern solutions.
-        </h1>
-      </header>
+      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">About Us</h1>
 
-      <section className="grid md:grid-cols-12 gap-12 py-20 border-b rule">
-        <div className="md:col-span-7 space-y-6 text-stone-300 text-lg leading-relaxed">
-          <p>
-            Peninsula Web Services is an independent studio founded by a young entrepreneur from the
-            Sturgeon Bay area — built to give the small businesses of Door County the same digital
-            edge as much larger brands.
+      <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+            Peninsula Web Services is a small web studio in Sturgeon Bay, Wisconsin. We build websites and tools for local small businesses — restaurants, shops, services, and anyone trying to grow their business online.
           </p>
-          <p>
-            Formal marketing training at <span className="text-stone-100">NWTC</span> shapes the
-            strategy behind every project: messaging, conversion, and local SEO are designed in
-            from day one, not bolted on after launch.
+          <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+            Our founder completed formal marketing training at <strong>NWTC</strong>, so every website we build is designed not just to look good, but to <strong>drive customers</strong>. We combine modern web technology with marketing strategy.
           </p>
-          <p>
-            The result is websites and AI tooling that don't just look refined — they generate
-            calls, bookings, and revenue for the people who run Main Street.
+          <p className="text-lg text-slate-700 leading-relaxed">
+            We're local. We understand Door County. And we care about your success — because your success is our success.
           </p>
         </div>
-        <aside className="md:col-span-5">
-          <div className="border rule">
-            {facts.map(([k, v], i) => (
-              <div key={k} className={`flex justify-between px-6 py-5 ${i ? 'border-t rule' : ''}`}>
-                <span className="eyebrow">{k}</span>
-                <span className="text-stone-100 text-sm font-medium">{v}</span>
-              </div>
-            ))}
+        <div className="h-96 bg-slate-100 rounded overflow-hidden">
+          <TeamImage />
+        </div>
+      </div>
+
+      <div className="bg-blue-50 p-12 rounded mb-16">
+        <h2 className="text-2xl font-bold text-slate-900 mb-6">Why work with us?</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="font-bold text-slate-900 mb-2">Local & Personal</h3>
+            <p className="text-slate-700">You talk to the person building your website — not an account manager in another state.</p>
           </div>
-        </aside>
-      </section>
+          <div>
+            <h3 className="font-bold text-slate-900 mb-2">Marketing-Driven</h3>
+            <p className="text-slate-700">NWTC training means we build for conversions, not just looks.</p>
+          </div>
+          <div>
+            <h3 className="font-bold text-slate-900 mb-2">Modern & Fast</h3>
+            <p className="text-slate-700">Your site works on phones, loads fast, and ranks on Google.</p>
+          </div>
+          <div>
+            <h3 className="font-bold text-slate-900 mb-2">Door County Focus</h3>
+            <p className="text-slate-700">We understand the local market and seasonal tourism economy.</p>
+          </div>
+        </div>
+      </div>
 
-      <section className="py-20 grid md:grid-cols-2 gap-12">
-        <div>
-          <p className="eyebrow mb-6">Approach</p>
-          <h2 className="font-display text-3xl md:text-4xl mb-6">Engineering meets strategy.</h2>
-          <p className="text-stone-400 leading-relaxed">
-            Every engagement starts with the question most agencies skip: what is this website
-            supposed to make happen? The answer drives the architecture, copy, and technology.
-          </p>
-        </div>
-        <div>
-          <p className="eyebrow mb-6">Promise</p>
-          <h2 className="font-display text-3xl md:text-4xl mb-6">You'll talk to the person building it.</h2>
-          <p className="text-stone-400 leading-relaxed">
-            No account managers, no offshore handoffs, no surprises. Direct communication and
-            in-person meetings — the way doing business in Door County is supposed to work.
-          </p>
-        </div>
-      </section>
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">Let's work together</h2>
+        <a href="#/contact" className="btn-primary">Start a Project</a>
+      </div>
     </div>
   );
 }
