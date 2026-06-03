@@ -1,6 +1,8 @@
 import { ArrowRight, Globe, Bot, MapPin, Star } from 'lucide-react';
 import Reveal from '../components/Reveal.jsx';
-import { HeroImage, RestaurantImage, ShopImage } from '../components/ImagePlaceholder.jsx';
+import BuildAnimation from '../components/BuildAnimation.jsx';
+import GlobeAnimation from '../components/GlobeAnimation.jsx';
+import { RestaurantImage, ShopImage } from '../components/ImagePlaceholder.jsx';
 
 const services = [
   { icon: Globe, title: 'Web Design', text: 'Fast, mobile-friendly websites that look great on every screen.' },
@@ -17,13 +19,13 @@ export default function Home() {
   return (
     <div>
       {/* ---------- Hero ---------- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-cream">
+      <section className="relative overflow-hidden bg-gradient-to-b from-teal-50 to-cream">
         <div className="container-x grid lg:grid-cols-2 gap-12 items-center py-16 md:py-24">
           <Reveal>
             <span className="eyebrow">Sturgeon Bay · Door County, WI</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.08] mb-6">
               Websites that bring{' '}
-              <span className="text-blue-700">local customers</span> to your door.
+              <span className="text-teal-700">local customers</span> to your door.
             </h1>
             <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
               We build fast, modern websites for the restaurants, shops, and services
@@ -45,9 +47,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={150}>
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 ring-1 ring-slate-900/5">
-              <HeroImage />
-            </div>
+            <BuildAnimation />
           </Reveal>
         </div>
       </section>
@@ -65,8 +65,8 @@ export default function Home() {
             {services.map(({ icon: Icon, title, text }, i) => (
               <Reveal key={title} delay={i * 100}>
                 <div className="card h-full p-8">
-                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
-                    <Icon className="w-6 h-6 text-blue-700" />
+                  <div className="w-12 h-12 rounded-lg bg-teal-50 flex items-center justify-center mb-5">
+                    <Icon className="w-6 h-6 text-teal-700" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{title}</h3>
                   <p className="text-slate-600 leading-relaxed">{text}</p>
@@ -100,18 +100,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- Local reach (globe) ---------- */}
+      <section className="py-16 md:py-24 overflow-hidden">
+        <div className="container-x grid lg:grid-cols-2 gap-12 items-center">
+          <Reveal>
+            <GlobeAnimation />
+          </Reveal>
+          <Reveal delay={120}>
+            <span className="eyebrow">Local Reach, World-Class Tech</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Rooted in Door County. Built on modern web technology.
+            </h2>
+            <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+              We're right here in Sturgeon Bay — but the websites we build use the same
+              fast, modern tools that power the world's best brands. Your customers get a
+              premium experience, and you get a partner who actually picks up the phone.
+            </p>
+            <ul className="space-y-2.5">
+              {['Fast, global content delivery', 'Mobile-first & accessible', 'Found on Google across the peninsula'].map((t) => (
+                <li key={t} className="flex items-center gap-2.5 text-slate-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ---------- CTA ---------- */}
       <section className="py-16 md:py-24">
         <div className="container-x">
           <Reveal>
-            <div className="rounded-2xl bg-blue-700 text-white px-8 py-14 md:px-16 text-center">
+            <div className="rounded-2xl bg-teal-700 text-white px-8 py-14 md:px-16 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to grow your business?
               </h2>
-              <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
+              <p className="text-teal-100 text-lg mb-8 max-w-xl mx-auto">
                 Tell us about your business and get a free, no-pressure quote within 24 hours.
               </p>
-              <a href="#/contact" className="btn bg-white text-blue-700 border-white hover:bg-blue-50">
+              <a href="#/contact" className="btn bg-white text-teal-700 border-white hover:bg-teal-50">
                 Start Your Project
                 <ArrowRight className="w-4 h-4" />
               </a>

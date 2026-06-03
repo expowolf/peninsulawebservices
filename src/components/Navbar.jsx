@@ -17,7 +17,7 @@ export default function Navbar({ current }) {
       <nav className="container-x flex items-center justify-between h-16">
         <a href="#/" className="flex items-center gap-2">
           <Logo size={32} />
-          <span className="hidden sm:block font-bold text-blue-700 text-sm">Peninsula Web Services</span>
+          <span className="hidden sm:block font-bold text-teal-700 text-sm">Peninsula Web Services</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
@@ -26,7 +26,7 @@ export default function Navbar({ current }) {
               <a
                 href={l.href}
                 className={`font-medium text-sm transition ${
-                  current === l.path ? 'text-blue-700' : 'text-slate-600 hover:text-slate-900'
+                  current === l.path ? 'text-teal-700' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {l.label}
