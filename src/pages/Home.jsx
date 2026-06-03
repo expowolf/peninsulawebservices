@@ -3,6 +3,8 @@ import Reveal from '../components/Reveal.jsx';
 import BuildAnimation from '../components/BuildAnimation.jsx';
 import GlobeAnimation from '../components/GlobeAnimation.jsx';
 import TrustBar from '../components/TrustBar.jsx';
+import Process from '../components/Process.jsx';
+import Pricing from '../components/Pricing.jsx';
 import Testimonials from '../components/Testimonials.jsx';
 import { RestaurantImage, ShopImage } from '../components/ImagePlaceholder.jsx';
 
@@ -82,6 +84,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- How it works ---------- */}
+      <Process />
+
       {/* ---------- Examples ---------- */}
       <section className="py-16 md:py-24 bg-white border-y border-slate-100">
         <div className="container-x">
@@ -132,6 +137,9 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* ---------- Transparent pricing ---------- */}
+      <Pricing />
 
       {/* ---------- Social proof (before CTA) ---------- */}
       <Testimonials />
