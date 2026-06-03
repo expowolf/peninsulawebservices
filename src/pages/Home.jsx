@@ -2,6 +2,7 @@ import { ArrowRight, Globe, Bot, MapPin, Star } from 'lucide-react';
 import Reveal from '../components/Reveal.jsx';
 import BuildAnimation from '../components/BuildAnimation.jsx';
 import GlobeAnimation from '../components/GlobeAnimation.jsx';
+import TrustBar from '../components/TrustBar.jsx';
 import { RestaurantImage, ShopImage } from '../components/ImagePlaceholder.jsx';
 
 const services = [
@@ -51,6 +52,9 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* ---------- Trust & Authority strip ---------- */}
+      <TrustBar />
 
       {/* ---------- Services ---------- */}
       <section className="py-16 md:py-24">
