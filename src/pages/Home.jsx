@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal.jsx';
 import BuildAnimation from '../components/BuildAnimation.jsx';
 import GlobeAnimation from '../components/GlobeAnimation.jsx';
 import TrustBar from '../components/TrustBar.jsx';
+import Testimonials from '../components/Testimonials.jsx';
 import { RestaurantImage, ShopImage } from '../components/ImagePlaceholder.jsx';
 
 const services = [
@@ -131,6 +132,9 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* ---------- Social proof (before CTA) ---------- */}
+      <Testimonials />
 
       {/* ---------- CTA ---------- */}
       <section className="py-16 md:py-24">
