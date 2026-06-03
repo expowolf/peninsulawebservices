@@ -111,3 +111,13 @@
 .anim-assemble { animation: assemble 7s ease-in-out infinite both; }
 .anim-type     { animation: type-line 7s ease-in-out infinite both; }
 .anim-float    { animation: float-soft 5s ease-in-out infinite; }
+
+/* Infinite horizontal ticker (icon strip) */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Hide native scrollbar on horizontally-scrolling card rails */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
