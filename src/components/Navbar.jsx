@@ -54,8 +54,8 @@ export default function Navbar({ current }) {
                     href={href}
                     className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors"
                   >
-                    <span className="w-9 h-9 rounded-lg bg-teal-50 grid place-items-center shrink-0">
-                      <Icon className="w-4 h-4 text-teal-700" aria-hidden="true" />
+                    <span className="w-9 h-9 rounded-lg bg-rose-50 grid place-items-center shrink-0">
+                      <Icon className="w-4 h-4 text-rose-700" aria-hidden="true" />
                     </span>
                     <span>
                       <span className="block text-sm font-semibold text-slate-900">{label}</span>

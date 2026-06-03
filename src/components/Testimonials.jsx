@@ -14,7 +14,7 @@ const testimonials = [
       'Our new site finally looks as good as our food. We started getting reservation calls the same week it went live.',
     name: 'Sample Client',
     role: 'Owner, Waterfront Restaurant · Sturgeon Bay',
-    accent: 'bg-teal-600',
+    accent: 'bg-rose-600',
   },
   {
     quote:
@@ -48,7 +48,7 @@ export default function Testimonials() {
           {testimonials.map(({ quote, name, role, accent }, i) => (
             <Reveal key={role} delay={i * 100}>
               <figure className="card h-full p-7 flex flex-col">
-                <Quote className="w-7 h-7 text-teal-200 mb-3" aria-hidden="true" />
+                <Quote className="w-7 h-7 text-rose-200 mb-3" aria-hidden="true" />
                 <div className="flex gap-0.5 mb-3 text-amber-400" aria-label="5 out of 5 stars">
                   {[...Array(5)].map((_, s) => (
                     <Star key={s} className="w-4 h-4 fill-current" />

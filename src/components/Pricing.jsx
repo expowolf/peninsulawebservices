@@ -50,7 +50,7 @@ export default function Pricing() {
               <div
                 className={`relative rounded-xl p-8 h-full flex flex-col transition-all duration-300 ${
                   popular
-                    ? 'bg-white border-2 border-teal-700 shadow-xl md:-translate-y-2'
+                    ? 'bg-white border-2 border-rose-700 shadow-xl md:-translate-y-2'
                     : 'bg-white border border-slate-200 hover:-translate-y-1 hover:shadow-lg'
                 }`}
               >
@@ -68,7 +68,7 @@ export default function Pricing() {
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
-                      <Check className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" aria-hidden="true" />
+                      <Check className="w-4 h-4 text-rose-700 shrink-0 mt-0.5" aria-hidden="true" />
                       {f}
                     </li>
                   ))}

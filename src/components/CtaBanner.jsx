@@ -11,7 +11,7 @@ export default function CtaBanner() {
       >
         PENINSULA
       </span>
-      <div className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-teal-700/30 blur-3xl" aria-hidden="true" />
+      <div className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-rose-700/30 blur-3xl" aria-hidden="true" />
 
       <div className="relative container-x py-24 md:py-32 text-center">
         <h2 className="font-display font-bold leading-[0.95] tracking-tight max-w-4xl mx-auto"

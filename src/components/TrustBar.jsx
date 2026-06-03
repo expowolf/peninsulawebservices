@@ -40,7 +40,7 @@ export default function TrustBar() {
       <div ref={ref} className="container-x grid grid-cols-2 lg:grid-cols-4 divide-x divide-slate-100">
         {stats.map(({ icon: Icon, value, suffix, display, label }) => (
           <div key={label} className="flex flex-col items-center text-center gap-2 px-4 py-8 lg:py-10">
-            <Icon className="w-6 h-6 text-teal-700" aria-hidden="true" />
+            <Icon className="w-6 h-6 text-rose-700" aria-hidden="true" />
             <div className="font-display text-3xl md:text-4xl font-bold text-slate-900 tabular-nums">
               {value != null ? <CountUp end={value} suffix={suffix} run={visible} /> : display}
             </div>

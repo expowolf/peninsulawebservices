@@ -28,7 +28,7 @@ const cases = [
     Img: ShopImage,
     label: 'Local Services',
     overlay: 'View case',
-    bg: 'bg-teal-50',
+    bg: 'bg-rose-50',
     desc: 'Plumbers, contractors, guides.',
   },
   {

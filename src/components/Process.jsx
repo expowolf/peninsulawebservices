@@ -37,11 +37,11 @@ export default function Process() {
             <Reveal key={title} delay={i * 100}>
               <div className="relative card h-full p-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="font-display text-5xl font-bold text-teal-100 leading-none">
+                  <span className="font-display text-5xl font-bold text-rose-100 leading-none">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="w-11 h-11 rounded-lg bg-teal-50 grid place-items-center">
-                    <Icon className="w-5 h-5 text-teal-700" aria-hidden="true" />
+                  <span className="w-11 h-11 rounded-lg bg-rose-50 grid place-items-center">
+                    <Icon className="w-5 h-5 text-rose-700" aria-hidden="true" />
                   </span>
                 </div>
                 <h3 className="text-xl font-bold mb-2">{title}</h3>

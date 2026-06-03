@@ -7,7 +7,7 @@ const posts = [
     tag: 'Local SEO',
     title: '5 Google ranking tips for Door County businesses',
     date: 'Coming soon',
-    accent: 'from-teal-200 to-teal-50',
+    accent: 'from-rose-200 to-rose-50',
   },
   {
     tag: 'AI',
@@ -99,7 +99,7 @@ export default function BlogCarousel() {
                   </span>
                   <span>{post.date}</span>
                 </div>
-                <h3 className="font-bold text-slate-900 leading-snug mb-4 group-hover:text-teal-700 transition-colors">
+                <h3 className="font-bold text-slate-900 leading-snug mb-4 group-hover:text-rose-700 transition-colors">
                   {post.title}
                 </h3>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 group-hover:gap-2.5 transition-all">

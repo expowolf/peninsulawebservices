@@ -42,7 +42,7 @@ export default function HeroAG() {
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(15, 118, 110, 0.45)';
+        ctx.fillStyle = 'rgba(190, 18, 60, 0.45)';
         ctx.fill();
       }
       // soft connecting lines
@@ -52,7 +52,7 @@ export default function HeroAG() {
           const dx = a.x - b.x, dy = a.y - b.y;
           const d = Math.hypot(dx, dy);
           if (d < 110 * dpr) {
-            ctx.strokeStyle = `rgba(15, 118, 110, ${0.18 * (1 - d / (110 * dpr))})`;
+            ctx.strokeStyle = `rgba(190, 18, 60, ${0.18 * (1 - d / (110 * dpr))})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -76,7 +76,7 @@ export default function HeroAG() {
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" />
 
       {/* Soft pastel gradient accents (antigravity-style decor) */}
-      <div className="pointer-events-none absolute -top-20 -left-20 w-[28rem] h-[28rem] rounded-full bg-teal-100/60 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -top-20 -left-20 w-[28rem] h-[28rem] rounded-full bg-rose-100/60 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute -bottom-32 -right-20 w-[32rem] h-[32rem] rounded-full bg-amber-100/60 blur-3xl" aria-hidden="true" />
 
       {/* Ghost watermark */}
@@ -97,7 +97,7 @@ export default function HeroAG() {
           style={{ fontSize: 'clamp(2.75rem, 8vw, 6.5rem)' }}
         >
           Local Roots.<br />
-          <span className="text-teal-700">Modern Solutions.</span>
+          <span className="text-rose-700">Modern Solutions.</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
           Premium websites, AI tools, and local marketing for the businesses of Door County.
