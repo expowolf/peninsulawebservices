@@ -1,17 +1,23 @@
+import { Globe, Bot, MapPin, Check, ArrowRight } from 'lucide-react';
+import Reveal from '../components/Reveal.jsx';
+
 const services = [
   {
+    icon: Globe,
     title: 'Custom Web Design',
-    desc: 'We build websites from scratch for your business — not templates, not builders. Fast, mobile-friendly, and optimized for Google.',
-    features: ['Mobile-first', 'Fast load times', 'SEO-ready', 'Easy to maintain'],
+    desc: 'We build websites from scratch for your business — not templates. Fast, mobile-friendly, and optimized for Google.',
+    features: ['Mobile-first design', 'Fast load times', 'SEO-ready', 'Easy to maintain'],
   },
   {
+    icon: Bot,
     title: 'AI & Automation',
-    desc: 'Smart tools that handle customer questions, send emails, and save you hours every week doing the boring stuff.',
-    features: ['Chatbots', 'Email automation', 'Lead capture', 'Custom tools'],
+    desc: 'Smart tools that answer customer questions, send emails, and handle the busywork so you can focus on your business.',
+    features: ['Customer chatbots', 'Email automation', 'Lead capture', 'Custom tools'],
   },
   {
+    icon: MapPin,
     title: 'Local Marketing',
-    desc: 'We know Door County. Help customers find you on Google Maps, manage your reviews, and plan campaigns that work.',
+    desc: 'We know Door County. Get found on Google Maps, manage your reviews, and plan campaigns that actually work.',
     features: ['Google optimization', 'Local SEO', 'Reviews management', 'Analytics'],
   },
 ];
@@ -19,32 +25,50 @@ const services = [
 export default function Services() {
   return (
     <div className="page">
-      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Services</h1>
-      <p className="text-xl text-slate-600 mb-16 max-w-3xl">
-        Three core services. All focused on one thing: helping your business win more customers online.
-      </p>
+      <Reveal className="max-w-3xl mb-14">
+        <span className="eyebrow">Services</span>
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+          Three services. One goal: more customers.
+        </h1>
+        <p className="text-lg text-slate-600">
+          Everything we do is focused on helping your local business get found and grow online.
+        </p>
+      </Reveal>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {services.map(({ title, desc, features }) => (
-          <div key={title} className="bg-white p-8 rounded border border-slate-200 shadow-sm hover:shadow-md transition">
-            <h3 className="text-2xl font-bold text-blue-700 mb-3">{title}</h3>
-            <p className="text-slate-700 mb-6 leading-relaxed">{desc}</p>
-            <ul className="space-y-2">
-              {features.map((f) => (
-                <li key={f} className="text-slate-700 flex gap-2">
-                  <span className="text-blue-700">✓</span> {f}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="grid md:grid-cols-3 gap-6">
+        {services.map(({ icon: Icon, title, desc, features }, i) => (
+          <Reveal key={title} delay={i * 100}>
+            <div className="card h-full p-8 flex flex-col">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
+                <Icon className="w-6 h-6 text-blue-700" />
+              </div>
+              <h2 className="text-xl font-bold mb-3">{title}</h2>
+              <p className="text-slate-600 mb-6 leading-relaxed">{desc}</p>
+              <ul className="mt-auto space-y-2.5 pt-6 border-t border-slate-100">
+                {features.map((f) => (
+                  <li key={f} className="flex items-center gap-2.5 text-slate-700">
+                    <Check className="w-4 h-4 text-blue-700 shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         ))}
       </div>
 
-      <div className="mt-16 bg-blue-50 p-10 rounded text-center">
-        <h2 className="text-2xl font-bold text-slate-900 mb-3">Ready to grow?</h2>
-        <p className="text-slate-700 mb-6">Let's talk about what your business needs.</p>
-        <a href="#/contact" className="btn-primary">Get a Free Quote</a>
-      </div>
+      <Reveal>
+        <div className="mt-14 bg-blue-50 rounded-2xl p-10 md:p-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Not sure what you need?</h2>
+          <p className="text-slate-600 mb-6 max-w-lg mx-auto">
+            That's okay. Reach out and we'll figure out the right fit for your business together.
+          </p>
+          <a href="#/contact" className="btn-primary group">
+            Get a Free Quote
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </Reveal>
     </div>
   );
 }

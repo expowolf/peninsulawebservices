@@ -24,8 +24,15 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-cream text-slate-800">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]
+                   focus:bg-blue-700 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+      >
+        Skip to content
+      </a>
       <Navbar current={path} />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <Page />
       </main>
       <Footer />

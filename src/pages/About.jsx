@@ -1,53 +1,76 @@
+import { Heart, Target, Zap, MapPin, ArrowRight } from 'lucide-react';
+import Reveal from '../components/Reveal.jsx';
 import { TeamImage } from '../components/ImagePlaceholder.jsx';
+
+const values = [
+  { icon: Heart, title: 'Local & Personal', text: 'You talk to the person building your site — not an account manager in another state.' },
+  { icon: Target, title: 'Marketing-Driven', text: 'NWTC marketing training means we build for real results, not just looks.' },
+  { icon: Zap, title: 'Modern & Fast', text: 'Your site works on phones, loads fast, and ranks well on Google.' },
+  { icon: MapPin, title: 'Door County Focus', text: 'We understand the local market and the seasonal tourism economy.' },
+];
 
 export default function About() {
   return (
     <div className="page">
-      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">About Us</h1>
+      <Reveal className="max-w-3xl mb-14">
+        <span className="eyebrow">About Us</span>
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Local roots. Modern solutions.</h1>
+      </Reveal>
 
-      <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-        <div>
-          <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-            Peninsula Web Services is a small web studio in Sturgeon Bay, Wisconsin. We build websites and tools for local small businesses — restaurants, shops, services, and anyone trying to grow their business online.
-          </p>
-          <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-            Our founder completed formal marketing training at <strong>NWTC</strong>, so every website we build is designed not just to look good, but to <strong>drive customers</strong>. We combine modern web technology with marketing strategy.
-          </p>
-          <p className="text-lg text-slate-700 leading-relaxed">
-            We're local. We understand Door County. And we care about your success — because your success is our success.
-          </p>
-        </div>
-        <div className="h-96 bg-slate-100 rounded overflow-hidden">
-          <TeamImage />
-        </div>
+      <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <Reveal>
+          <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
+            <p>
+              Peninsula Web Services is a small web studio in <strong className="text-slate-900">Sturgeon Bay, Wisconsin</strong>.
+              We build websites and tools for local businesses — restaurants, shops, services, and anyone
+              trying to grow online.
+            </p>
+            <p>
+              Our founder completed formal marketing training at <strong className="text-slate-900">NWTC</strong>,
+              so every website we build is designed not just to look good, but to actually
+              <strong className="text-slate-900"> bring in customers</strong>.
+            </p>
+            <p>
+              We're local, we understand Door County, and we genuinely care about your success —
+              because when your business grows, so does ours.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={150}>
+          <div className="rounded-2xl overflow-hidden shadow-xl shadow-slate-900/5 ring-1 ring-slate-900/5">
+            <TeamImage />
+          </div>
+        </Reveal>
       </div>
 
-      <div className="bg-blue-50 p-12 rounded mb-16">
-        <h2 className="text-2xl font-bold text-slate-900 mb-6">Why work with us?</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="font-bold text-slate-900 mb-2">Local & Personal</h3>
-            <p className="text-slate-700">You talk to the person building your website — not an account manager in another state.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-slate-900 mb-2">Marketing-Driven</h3>
-            <p className="text-slate-700">NWTC training means we build for conversions, not just looks.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-slate-900 mb-2">Modern & Fast</h3>
-            <p className="text-slate-700">Your site works on phones, loads fast, and ranks on Google.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-slate-900 mb-2">Door County Focus</h3>
-            <p className="text-slate-700">We understand the local market and seasonal tourism economy.</p>
-          </div>
-        </div>
+      <Reveal className="max-w-2xl mb-10">
+        <span className="eyebrow">Why Work With Us</span>
+        <h2 className="text-3xl font-bold">A partner who's invested in your success.</h2>
+      </Reveal>
+      <div className="grid sm:grid-cols-2 gap-6 mb-16">
+        {values.map(({ icon: Icon, title, text }, i) => (
+          <Reveal key={title} delay={i * 80}>
+            <div className="card h-full p-7 flex gap-4">
+              <div className="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                <Icon className="w-5 h-5 text-blue-700" />
+              </div>
+              <div>
+                <h3 className="font-bold mb-1">{title}</h3>
+                <p className="text-slate-600 leading-relaxed">{text}</p>
+              </div>
+            </div>
+          </Reveal>
+        ))}
       </div>
 
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Let's work together</h2>
-        <a href="#/contact" className="btn-primary">Start a Project</a>
-      </div>
+      <Reveal>
+        <div className="text-center">
+          <a href="#/contact" className="btn-primary group">
+            Let's Work Together
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </Reveal>
     </div>
   );
 }
