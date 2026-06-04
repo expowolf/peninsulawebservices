@@ -129,6 +129,24 @@
   font-size: clamp(2.75rem, 8vw, 6.5rem);
 }
 
+/* Wisconsin map animations */
+@keyframes wi-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes wi-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes wi-pin-drop {
+  0%   { opacity: 0; transform: translateY(-14px) scale(0.4); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes wi-pulse {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  80%  { opacity: 0; }
+  100% { transform: scale(3.4); opacity: 0; }
+}
+
 /* Infinite horizontal ticker (icon strip) */
 @keyframes ticker {
   from { transform: translateX(0); }
