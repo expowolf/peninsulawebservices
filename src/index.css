@@ -107,6 +107,28 @@
 .anim-type     { animation: type-line 7s ease-in-out infinite both; }
 .anim-float    { animation: float-soft 5s ease-in-out infinite; }
 
+/* Per-letter anti-gravity entrance + perpetual bob */
+@keyframes float-in {
+  0%   { opacity: 0; transform: translate(var(--tx), var(--ty)) rotate(var(--rot)); filter: blur(var(--blur)); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translate(0, 0) rotate(0); filter: blur(0); }
+}
+@keyframes glyph-bob {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  50%      { transform: translate(0, -3px) rotate(0.4deg); }
+}
+.anim-float-in {
+  animation:
+    float-in 1.6s cubic-bezier(0.18, 0.9, 0.22, 1) both,
+    glyph-bob 5.5s ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+/* Display headline scale used by FloatingHeadline */
+.font-display.text-balance, h1.font-display {
+  font-size: clamp(2.75rem, 8vw, 6.5rem);
+}
+
 /* Infinite horizontal ticker (icon strip) */
 @keyframes ticker {
   from { transform: translateX(0); }

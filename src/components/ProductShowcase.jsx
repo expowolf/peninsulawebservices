@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { ArrowUpRight, Globe, Bot, MapPin } from 'lucide-react';
 import BuildAnimation from './BuildAnimation.jsx';
-import GlobeAnimation from './GlobeAnimation.jsx';
+
+// three.js + Earth3D is heavy; load it only when the Local SEO tab is active
+const Earth3D = lazy(() => import('./Earth3D.jsx'));
 
 const products = [
   {
@@ -55,8 +57,10 @@ const products = [
     name: 'Local SEO & Marketing',
     desc: 'NWTC-trained strategy to get found on Google by Door County locals and tourists.',
     Visual: () => (
-      <div className="w-full max-w-md mx-auto">
-        <GlobeAnimation />
+      <div className="w-full grid place-items-center min-h-[360px]">
+        <Suspense fallback={<div className="w-[360px] h-[360px] rounded-full bg-gradient-to-br from-sky-200 to-sky-400 opacity-60" />}>
+          <Earth3D size={360} />
+        </Suspense>
       </div>
     ),
     accent: 'from-amber-100 to-rose-50',
