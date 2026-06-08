@@ -15,15 +15,17 @@ const values = [
 
 export default function About() {
   return (
-    <div>
-      <Suspense fallback={<div className="min-h-[72vh] bg-white" />}>
-        <BackgroundCircles
-          title="Local roots. Modern solutions."
-          description="A small Door County web studio building premium sites for the businesses we grew up around."
-        />
+    <div className="relative overflow-hidden">
+      {/* Ambient rose backdrop — rotates behind the whole page, no text of its own */}
+      <Suspense fallback={null}>
+        <BackgroundCircles backdrop />
       </Suspense>
 
-      <div className="page">
+      <div className="page relative z-10">
+        <Reveal className="max-w-3xl mb-14">
+          <span className="eyebrow">About Us</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Local roots. Modern solutions.</h1>
+        </Reveal>
 
       <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
         <Reveal>

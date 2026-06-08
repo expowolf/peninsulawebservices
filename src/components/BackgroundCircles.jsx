@@ -24,18 +24,23 @@ function AnimatedGrid() {
 }
 
 export default function BackgroundCircles({
-  title = 'About Peninsula Web Services',
-  description = 'Local roots. Modern solutions.',
+  title,
+  description,
   className = '',
-  // contained = true → fills its own section (not full screen); false → h-screen
+  // contained = true → fills its own section; false → h-screen
   contained = true,
+  // backdrop = true → no text, transparent bg, pointer-events-none.
+  // Use it as an absolutely-positioned ambient backdrop behind real content.
+  backdrop = false,
 }) {
-  return (
-    <div
-      className={`relative flex w-full items-center justify-center overflow-hidden bg-white ${
+  const wrapperClass = backdrop
+    ? `absolute inset-0 w-full h-full overflow-hidden pointer-events-none ${className}`
+    : `relative flex w-full items-center justify-center overflow-hidden bg-white ${
         contained ? 'min-h-[72vh]' : 'h-screen'
-      } ${className}`}
-    >
+      } ${className}`;
+
+  return (
+    <div className={wrapperClass} aria-hidden={backdrop || undefined}>
       <AnimatedGrid />
 
       <motion.div className="absolute h-[420px] w-[420px] md:h-[480px] md:w-[480px]">
@@ -53,24 +58,30 @@ export default function BackgroundCircles({
         ))}
       </motion.div>
 
-      <motion.div
-        className="relative z-10 text-center px-6 max-w-3xl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <h1 className="font-display font-bold tracking-tight text-4xl md:text-6xl lg:text-7xl bg-gradient-to-b from-slate-950 to-slate-700 bg-clip-text text-transparent">
-          {title}
-        </h1>
-        <motion.p
-          className="mt-6 text-lg md:text-xl text-slate-700"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.25, duration: 0.7 }}
+      {!backdrop && (title || description) && (
+        <motion.div
+          className="relative z-10 text-center px-6 max-w-3xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          {description}
-        </motion.p>
-      </motion.div>
+          {title && (
+            <h1 className="font-display font-bold tracking-tight text-4xl md:text-6xl lg:text-7xl bg-gradient-to-b from-slate-950 to-slate-700 bg-clip-text text-transparent">
+              {title}
+            </h1>
+          )}
+          {description && (
+            <motion.p
+              className="mt-6 text-lg md:text-xl text-slate-700"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.25, duration: 0.7 }}
+            >
+              {description}
+            </motion.p>
+          )}
+        </motion.div>
+      )}
 
       {/* Soft brand glow */}
       <div className="absolute inset-0 pointer-events-none [mask-image:radial-gradient(90%_60%_at_50%_50%,#000_40%,transparent)]">
