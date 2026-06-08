@@ -18,10 +18,9 @@ export default function FloatingHeadline({ lines, className = '', baseDelay = 0 
       return s;
     };
     return Array.from({ length: 80 }, (_, i) => ({
-      tx: (seeded(i) - 0.5) * 220,        // -110..110 px
-      ty: (seeded(i + 7) - 0.5) * 180,    // -90..90 px
-      rot: (seeded(i + 13) - 0.5) * 24,   // -12..12 deg
-      blur: 4 + seeded(i + 19) * 8,       // 4..12 px
+      tx:  (seeded(i)      - 0.5) * 90,  // ±45px — shorter travel, smoother
+      ty:  (seeded(i + 7)  - 0.5) * 70,  // ±35px
+      rot: (seeded(i + 13) - 0.5) * 10,  // ±5deg
     }));
   }, []);
 
@@ -34,8 +33,8 @@ export default function FloatingHeadline({ lines, className = '', baseDelay = 0 
           {Array.from(line.text).map((ch, ci) => {
             const i = glyphIndex++;
             const o = offsets[i % offsets.length];
-            // Stagger: ~55ms per glyph
-            const delay = baseDelay + i * 0.055;
+            // Stagger: ~40ms per glyph (tighter; whole headline lands sooner)
+            const delay = baseDelay + i * 0.04;
             if (ch === ' ') return <span key={ci} className="inline-block w-[0.35em]">&nbsp;</span>;
             return (
               <span
@@ -46,8 +45,7 @@ export default function FloatingHeadline({ lines, className = '', baseDelay = 0 
                   '--tx': `${o.tx}px`,
                   '--ty': `${o.ty}px`,
                   '--rot': `${o.rot}deg`,
-                  '--blur': `${o.blur}px`,
-                  animationDelay: `${delay}s, ${1.6 + delay}s`,
+                  animationDelay: `${delay}s, ${1 + delay}s`,
                 }}
               >
                 {ch}

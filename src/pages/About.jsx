@@ -1,6 +1,10 @@
+import { lazy, Suspense } from 'react';
 import { Heart, Target, Zap, MapPin, ArrowRight } from 'lucide-react';
 import Reveal from '../components/Reveal.jsx';
 import { TeamImage } from '../components/ImagePlaceholder.jsx';
+
+// framer-motion-backed hero; only loads on /about
+const BackgroundCircles = lazy(() => import('../components/BackgroundCircles.jsx'));
 
 const values = [
   { icon: Heart, title: 'Local & Personal', text: 'You talk to the person building your site — not an account manager in another state.' },
@@ -11,11 +15,15 @@ const values = [
 
 export default function About() {
   return (
-    <div className="page">
-      <Reveal className="max-w-3xl mb-14">
-        <span className="eyebrow">About Us</span>
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Local roots. Modern solutions.</h1>
-      </Reveal>
+    <div>
+      <Suspense fallback={<div className="min-h-[72vh] bg-white" />}>
+        <BackgroundCircles
+          title="Local roots. Modern solutions."
+          description="A small Door County web studio building premium sites for the businesses we grew up around."
+        />
+      </Suspense>
+
+      <div className="page">
 
       <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
         <Reveal>
@@ -71,6 +79,7 @@ export default function About() {
           </a>
         </div>
       </Reveal>
+      </div>
     </div>
   );
 }
