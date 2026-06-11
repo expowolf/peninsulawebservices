@@ -34,7 +34,7 @@ export default function BackgroundCircles({
   backdrop = false,
 }) {
   const wrapperClass = backdrop
-    ? `absolute inset-0 w-full h-full overflow-hidden pointer-events-none ${className}`
+    ? `absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden pointer-events-none ${className}`
     : `relative flex w-full items-center justify-center overflow-hidden bg-white ${
         contained ? 'min-h-[72vh]' : 'h-screen'
       } ${className}`;

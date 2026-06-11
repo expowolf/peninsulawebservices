@@ -1,54 +1,31 @@
-import { useMemo } from 'react';
-
 /**
- * Per-letter "anti-gravity" headline.
- *  • Each glyph starts at a random offset/rotation/blur and eases to rest.
- *  • Stagger by index — letters arrive one after another.
- *  • A subtle perpetual sway runs after settle (`bob` keyframe in index.css).
- *  • Two color zones (`pre` / `post`) so we can theme half the headline.
- *  • prefers-reduced-motion is handled globally — animations collapse.
- *
- * Layout: pass `lines` as an array of { text, accent? } pairs.
+ * Headline that floats in per-WORD (not per-letter). Animating ~5 words
+ * instead of ~30 glyphs — and dropping the infinite per-glyph bob — removes
+ * the cold-load jank entirely while keeping the weightless entrance.
+ * GPU-only properties (translate3d/opacity), no filters.
  */
 export default function FloatingHeadline({ lines, className = '', baseDelay = 0 }) {
-  // Deterministic but varied per-letter offsets (seeded from index)
-  const offsets = useMemo(() => {
-    const seeded = (i) => {
-      const s = Math.sin(i * 9301 + 49297) * 0.5 + 0.5; // 0..1
-      return s;
-    };
-    return Array.from({ length: 80 }, (_, i) => ({
-      tx:  (seeded(i)      - 0.5) * 90,  // ±45px — shorter travel, smoother
-      ty:  (seeded(i + 7)  - 0.5) * 70,  // ±35px
-      rot: (seeded(i + 13) - 0.5) * 10,  // ±5deg
-    }));
-  }, []);
-
-  let glyphIndex = 0;
+  let wordIndex = 0;
 
   return (
     <h1 className={className} aria-label={lines.map((l) => l.text).join(' ')}>
       {lines.map((line, li) => (
         <span key={li} className="block">
-          {Array.from(line.text).map((ch, ci) => {
-            const i = glyphIndex++;
-            const o = offsets[i % offsets.length];
-            // Stagger: ~40ms per glyph (tighter; whole headline lands sooner)
-            const delay = baseDelay + i * 0.04;
-            if (ch === ' ') return <span key={ci} className="inline-block w-[0.35em]">&nbsp;</span>;
+          {line.text.split(' ').map((word, wi) => {
+            const i = wordIndex++;
+            // Deterministic small offsets per word
+            const s = Math.sin(i * 9301 + 49297) * 0.5 + 0.5;
+            const ty = 18 + s * 22;            // 18–40px rise
+            const delay = baseDelay + i * 0.09; // 90ms stagger per word
             return (
-              <span
-                key={ci}
-                aria-hidden="true"
-                className={`inline-block anim-float-in ${line.accent ?? ''}`}
-                style={{
-                  '--tx': `${o.tx}px`,
-                  '--ty': `${o.ty}px`,
-                  '--rot': `${o.rot}deg`,
-                  animationDelay: `${delay}s, ${1 + delay}s`,
-                }}
-              >
-                {ch}
+              <span key={wi} className="inline-block overflow-visible" aria-hidden="true">
+                <span
+                  className={`inline-block anim-word-in ${line.accent ?? ''}`}
+                  style={{ '--ty': `${ty}px`, animationDelay: `${delay}s` }}
+                >
+                  {word}
+                </span>
+                {wi < line.text.split(' ').length - 1 && <span>&nbsp;</span>}
               </span>
             );
           })}

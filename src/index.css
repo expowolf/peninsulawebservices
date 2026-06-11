@@ -107,20 +107,14 @@
 .anim-type     { animation: type-line 7s ease-in-out infinite both; }
 .anim-float    { animation: float-soft 5s ease-in-out infinite; }
 
-/* Per-letter anti-gravity entrance + perpetual bob. translate3d + no filter
-   so it stays on the GPU compositor and doesn't jank on first paint. */
-@keyframes float-in {
-  0%   { opacity: 0; transform: translate3d(var(--tx), var(--ty), 0) rotate(var(--rot)); }
-  100% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0); }
+/* Per-word entrance: GPU-only (translate3d/opacity), finite — no infinite
+   per-glyph animations competing on first paint. */
+@keyframes word-in {
+  0%   { opacity: 0; transform: translate3d(0, var(--ty, 28px), 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
 }
-@keyframes glyph-bob {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0); }
-  50%      { transform: translate3d(0, -2px, 0) rotate(0.3deg); }
-}
-.anim-float-in {
-  animation:
-    float-in 1s cubic-bezier(0.18, 0.9, 0.22, 1) both,
-    glyph-bob 5.5s ease-in-out infinite;
+.anim-word-in {
+  animation: word-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: transform, opacity;
   backface-visibility: hidden;
 }
