@@ -44,14 +44,14 @@ export default function MapSection() {
       <div className="container-x">
         <Reveal className="max-w-2xl mb-12">
           <p className="text-xs uppercase tracking-[0.28em] font-semibold text-slate-500 mb-3">
-            Proudly Local
+            Wisconsin-Based, Working Everywhere
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold">
-            Based in Sturgeon Bay. Serving all of Door County.
+            A studio close to home, working with clients anywhere.
           </h2>
           <p className="text-slate-600 mt-4 text-lg">
-            A local studio that knows the peninsula — from the shops on 3rd Avenue to
-            the resorts in Fish Creek and the galleries in Sister Bay.
+            Headquartered in Wisconsin and partnering with businesses across the country —
+            same responsive, hands-on service whether you're down the street or across the map.
           </p>
         </Reveal>
 

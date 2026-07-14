@@ -33,20 +33,20 @@ export default function HeroAG() {
 
       <div className="relative container-x text-center px-6 pt-32 pb-20 z-10">
         <p className="text-xs uppercase tracking-[0.28em] font-semibold text-white/60 mb-6">
-          Sturgeon Bay · Door County, WI
+          Web Design · Development · AI
         </p>
 
         <FloatingHeadline
           baseDelay={0.1}
           lines={[
-            { text: 'Local Roots.', accent: 'text-white' },
-            { text: 'Modern Solutions.', accent: 'text-rose-400' },
+            { text: 'Websites that', accent: 'text-white' },
+            { text: 'mean business.', accent: 'text-rose-400' },
           ]}
           className="font-display font-bold leading-[0.95] tracking-tight mb-8 mx-auto max-w-5xl text-white"
         />
 
         <p className="text-lg md:text-xl text-white/75 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Premium websites, AI tools, and local marketing for the businesses of Door County.
+          We design, build, and optimize high-performance websites and AI tools that turn visitors into customers.
         </p>
 
         {/* "Available" status pill */}
