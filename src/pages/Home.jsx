@@ -1,15 +1,48 @@
 import { lazy, Suspense } from 'react';
-import Reveal from '../components/Reveal.jsx';
 import HeroAG from '../components/HeroAG.jsx';
 import IconTicker from '../components/IconTicker.jsx';
 import MapSection from '../components/MapSection.jsx';
-import PricingTeaser from '../components/PricingTeaser.jsx';
 import ClaudeCodeMockup from '../components/ClaudeCodeMockup.jsx';
 
-// framer-motion is only needed here; load it as its own chunk.
+// framer-motion / confetti / number-flow are only needed here; lazy chunks.
 const ContainerScroll = lazy(() =>
   import('../components/ContainerScroll.jsx').then((m) => ({ default: m.ContainerScroll })),
 );
+const PricingSection = lazy(() => import('../components/PricingSection.jsx'));
+
+const pricingPlans = [
+  {
+    name: 'Starter',
+    price: '79',        // per month (care plan)
+    yearlyPrice: '63',
+    oneTimePrice: '899', // one-time build
+    description: 'A polished one-page site to get online fast.',
+    features: ['Single-page website', 'Mobile-first & fast', 'Contact form + maps', 'Basic on-page SEO'],
+    buttonText: 'Get Started',
+    href: '#/contact',
+  },
+  {
+    name: 'Professional',
+    price: '149',
+    yearlyPrice: '119',
+    oneTimePrice: '1899',
+    description: 'A complete multi-page site built to convert.',
+    features: ['Up to 5 custom pages', 'Local SEO setup', 'Lead-capture forms', 'Analytics & 30 days support'],
+    buttonText: 'Get Started',
+    href: '#/contact',
+    isPopular: true,
+  },
+  {
+    name: 'Growth',
+    price: '399',
+    yearlyPrice: '319',
+    oneTimePrice: '4999',
+    description: 'Full site plus AI tools and ongoing support.',
+    features: ['Everything in Professional', 'AI chatbot & automation', 'Ongoing SEO & updates', 'Priority support'],
+    buttonText: 'Contact Us',
+    href: '#/contact',
+  },
+];
 
 export default function Home() {
   return (
@@ -41,7 +74,13 @@ export default function Home() {
         </Suspense>
       </section>
 
-      <Reveal as="div"><PricingTeaser /></Reveal>
+      <Suspense fallback={<div className="bg-slate-950 h-[600px]" />}>
+        <PricingSection
+          plans={pricingPlans}
+          title="Simple, transparent pricing"
+          description="Choose a one-time project build or an ongoing care plan — no surprises, ever."
+        />
+      </Suspense>
     </div>
   );
 }

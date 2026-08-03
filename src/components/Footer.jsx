@@ -39,9 +39,9 @@ export default function Footer() {
             <span className="font-display font-bold text-slate-900">Peninsula Web Services</span>
           </div>
           <p className="font-display text-2xl md:text-3xl font-bold text-slate-900 leading-tight max-w-md">
-            Premium websites for the businesses of Door County.
+            High-performance websites &amp; AI tools for modern businesses.
           </p>
-          <p className="text-slate-500 mt-4 text-sm">Local roots. Modern solutions.</p>
+          <p className="text-slate-500 mt-4 text-sm">Design. Development. Results.</p>
         </div>
 
         <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
@@ -69,7 +69,7 @@ export default function Footer() {
           <ul className="flex items-center gap-5">
             <li><a href="#" className="hover:text-slate-900">Privacy</a></li>
             <li><a href="#" className="hover:text-slate-900">Terms</a></li>
-            <li><span className="text-slate-400">Door County · Wisconsin</span></li>
+            <li><span className="text-slate-400">Made in Wisconsin</span></li>
           </ul>
         </div>
       </div>
