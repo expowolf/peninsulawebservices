@@ -17,16 +17,16 @@ export default function Navbar({ current }) {
 
   const navLink = (path) =>
     `text-sm font-medium transition-colors ${
-      current === path ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'
+      current === path ? 'text-white' : 'text-neutral-400 hover:text-white'
     }`;
 
   return (
-    <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-100">
+    <header className="sticky top-0 z-50 bg-neutral-900/85 backdrop-blur-md border-b border-neutral-800">
       <nav className="container-x flex items-center justify-between h-16">
         {/* Left: logo + wordmark */}
         <a href="#/" className="flex items-center gap-2">
           <Logo size={30} />
-          <span className="hidden sm:block font-display font-bold text-slate-900 text-sm">
+          <span className="hidden sm:block font-display font-bold text-white text-sm">
             Peninsula Web Services
           </span>
         </a>
@@ -53,7 +53,7 @@ export default function Navbar({ current }) {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-slate-700 p-1"
+          className="md:hidden text-neutral-300 p-1"
           aria-label="Menu"
           aria-expanded={open}
         >
@@ -63,11 +63,11 @@ export default function Navbar({ current }) {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-slate-100">
+        <div className="md:hidden bg-neutral-900 border-t border-neutral-800">
           <ul className="container-x py-4 flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.path}>
-                <a href={l.href} onClick={() => setOpen(false)} className="block py-2.5 font-medium text-slate-700">
+                <a href={l.href} onClick={() => setOpen(false)} className="block py-2.5 font-medium text-neutral-300">
                   {l.label}
                 </a>
               </li>

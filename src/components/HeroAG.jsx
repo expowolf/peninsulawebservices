@@ -15,7 +15,7 @@ export default function HeroAG() {
   return (
     <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-black isolate">
       {/* Shader background */}
-      <Suspense fallback={<div className="absolute inset-0 bg-gradient-to-br from-rose-950 via-black to-amber-950" />}>
+      <Suspense fallback={<div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-black to-amber-950" />}>
         <ShaderCanvas />
       </Suspense>
 
@@ -40,7 +40,7 @@ export default function HeroAG() {
           baseDelay={0.1}
           lines={[
             { text: 'Websites that', accent: 'text-white' },
-            { text: 'mean business.', accent: 'text-rose-400' },
+            { text: 'mean business.', accent: 'text-amber-400' },
           ]}
           className="font-display font-bold leading-[0.95] tracking-tight mb-8 mx-auto max-w-5xl text-white"
         />
@@ -50,7 +50,7 @@ export default function HeroAG() {
         </p>
 
         {/* "Available" status pill */}
-        <div className="inline-flex items-center gap-2 mb-10 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm">
+        <div className="inline-flex items-center gap-2 mb-10 px-3 py-1.5 rounded-full bg-neutral-900/[0.06] border border-white/15 backdrop-blur-sm">
           <span className="relative flex h-2.5 w-2.5 items-center justify-center" aria-hidden="true">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -62,8 +62,8 @@ export default function HeroAG() {
           <a
             href="#/contact"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold rounded-full
-                       bg-white text-slate-900 border-2 border-white
-                       hover:bg-rose-100 hover:border-rose-100 transition-all active:scale-[0.98] group"
+                       bg-amber-500 text-black border-2 border-amber-500
+                       hover:bg-amber-400 hover:border-amber-400 transition-all active:scale-[0.98] group"
           >
             Get a Free Quote
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

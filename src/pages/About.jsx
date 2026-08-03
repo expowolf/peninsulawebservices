@@ -29,16 +29,16 @@ export default function About() {
 
       <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
         <Reveal>
-          <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
+          <div className="space-y-5 text-lg text-neutral-400 leading-relaxed">
             <p>
-              Peninsula Web Services is a small web studio in <strong className="text-slate-900">Sturgeon Bay, Wisconsin</strong>.
+              Peninsula Web Services is a small web studio in <strong className="text-white">Sturgeon Bay, Wisconsin</strong>.
               We build websites and tools for local businesses — restaurants, shops, services, and anyone
               trying to grow online.
             </p>
             <p>
-              Our founder completed formal marketing training at <strong className="text-slate-900">NWTC</strong>,
+              Our founder completed formal marketing training at <strong className="text-white">NWTC</strong>,
               so every website we build is designed not just to look good, but to actually
-              <strong className="text-slate-900"> bring in customers</strong>.
+              <strong className="text-white"> bring in customers</strong>.
             </p>
             <p>
               We're local, we understand Door County, and we genuinely care about your success —
@@ -61,12 +61,12 @@ export default function About() {
         {values.map(({ icon: Icon, title, text }, i) => (
           <Reveal key={title} delay={i * 80}>
             <div className="card h-full p-7 flex gap-4">
-              <div className="w-11 h-11 rounded-lg bg-rose-50 flex items-center justify-center shrink-0">
-                <Icon className="w-5 h-5 text-rose-700" />
+              <div className="w-11 h-11 rounded-lg bg-amber-500/10 flex items-center justify-center shrink-0">
+                <Icon className="w-5 h-5 text-amber-500" />
               </div>
               <div>
                 <h3 className="font-bold mb-1">{title}</h3>
-                <p className="text-slate-600 leading-relaxed">{text}</p>
+                <p className="text-neutral-400 leading-relaxed">{text}</p>
               </div>
             </div>
           </Reveal>

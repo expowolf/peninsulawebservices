@@ -16,69 +16,69 @@ export default function Contact() {
   return (
     <div className="page">
       <div className="max-w-2xl">
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Let's Talk</h1>
-        <p className="text-xl text-slate-600 mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Let's Talk</h1>
+        <p className="text-xl text-neutral-400 mb-12">
           Share a bit about your business and what you're looking for. I'll get back to you within 24 hours.
         </p>
 
-        <form onSubmit={onSubmit} className="bg-white p-8 rounded border border-slate-200 space-y-6">
+        <form onSubmit={onSubmit} className="bg-neutral-900 p-8 rounded border border-neutral-800 space-y-6">
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
-              <label className="block font-semibold text-slate-900 mb-2">Your Name *</label>
+              <label className="block font-semibold text-white mb-2">Your Name *</label>
               <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={onChange}
                 required
-                className="w-full px-4 py-2 border border-slate-300 rounded focus:border-rose-700 focus:ring-1 focus:ring-rose-700 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
               />
             </div>
             <div>
-              <label className="block font-semibold text-slate-900 mb-2">Business Name</label>
+              <label className="block font-semibold text-white mb-2">Business Name</label>
               <input
                 type="text"
                 name="business"
                 value={form.business}
                 onChange={onChange}
-                className="w-full px-4 py-2 border border-slate-300 rounded focus:border-rose-700 focus:ring-1 focus:ring-rose-700 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
               />
             </div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
-              <label className="block font-semibold text-slate-900 mb-2">Email *</label>
+              <label className="block font-semibold text-white mb-2">Email *</label>
               <input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={onChange}
                 required
-                className="w-full px-4 py-2 border border-slate-300 rounded focus:border-rose-700 focus:ring-1 focus:ring-rose-700 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
               />
             </div>
             <div>
-              <label className="block font-semibold text-slate-900 mb-2">Phone</label>
+              <label className="block font-semibold text-white mb-2">Phone</label>
               <input
                 type="tel"
                 name="phone"
                 value={form.phone}
                 onChange={onChange}
-                className="w-full px-4 py-2 border border-slate-300 rounded focus:border-rose-700 focus:ring-1 focus:ring-rose-700 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
               />
             </div>
           </div>
 
           <div>
-            <label className="block font-semibold text-slate-900 mb-2">Tell me about your project *</label>
+            <label className="block font-semibold text-white mb-2">Tell me about your project *</label>
             <textarea
               name="message"
               value={form.message}
               onChange={onChange}
               required
               rows={6}
-              className="w-full px-4 py-2 border border-slate-300 rounded focus:border-rose-700 focus:ring-1 focus:ring-rose-700 outline-none resize-none"
+              className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none resize-none"
               placeholder="What's your business and what do you need?"
             />
           </div>
@@ -89,19 +89,19 @@ export default function Contact() {
         </form>
 
         <div className="mt-12 pt-8 border-t">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Direct Contact</h2>
+          <h2 className="text-xl font-bold text-white mb-4">Direct Contact</h2>
           <div className="space-y-3">
             <p>
-              <a href="tel:+19203709543" className="text-rose-700 font-semibold hover:underline">
+              <a href="tel:+19203709543" className="text-amber-500 font-semibold hover:underline">
                 (920) 370-9543
               </a>
             </p>
             <p>
-              <a href="mailto:dcpeninsulaweb@gmail.com" className="text-rose-700 font-semibold hover:underline">
+              <a href="mailto:dcpeninsulaweb@gmail.com" className="text-amber-500 font-semibold hover:underline">
                 dcpeninsulaweb@gmail.com
               </a>
             </p>
-            <p className="text-slate-700">Sturgeon Bay, Wisconsin</p>
+            <p className="text-neutral-300">Sturgeon Bay, Wisconsin</p>
           </div>
         </div>
       </div>

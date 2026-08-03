@@ -11,7 +11,7 @@ export default function CtaBanner() {
       >
         PENINSULA
       </span>
-      <div className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-rose-700/30 blur-3xl" aria-hidden="true" />
+      <div className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-amber-500/30 blur-3xl" aria-hidden="true" />
 
       <div className="relative container-x py-24 md:py-32 text-center">
         <h2 className="font-display font-bold leading-[0.95] tracking-tight max-w-4xl mx-auto"
@@ -23,7 +23,7 @@ export default function CtaBanner() {
         </p>
         <a
           href="#/contact"
-          className="inline-flex items-center gap-2 mt-10 px-8 py-4 rounded-full bg-white text-slate-900 font-semibold text-sm hover:bg-amber-300 transition-colors active:scale-[0.98] group"
+          className="inline-flex items-center gap-2 mt-10 px-8 py-4 rounded-full bg-neutral-900 text-white font-semibold text-sm hover:bg-amber-300 transition-colors active:scale-[0.98] group"
         >
           Start Your Project
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

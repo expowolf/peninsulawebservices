@@ -36,15 +36,15 @@ function CountUp({ end, suffix = '', run }) {
 export default function TrustBar() {
   const [ref, visible] = useReveal({ threshold: 0.3 });
   return (
-    <section className="border-y border-slate-200 bg-white" aria-label="Credentials and proof points">
-      <div ref={ref} className="container-x grid grid-cols-2 lg:grid-cols-4 divide-x divide-slate-100">
+    <section className="border-y border-neutral-800 bg-neutral-900" aria-label="Credentials and proof points">
+      <div ref={ref} className="container-x grid grid-cols-2 lg:grid-cols-4 divide-x divide-neutral-800">
         {stats.map(({ icon: Icon, value, suffix, display, label }) => (
           <div key={label} className="flex flex-col items-center text-center gap-2 px-4 py-8 lg:py-10">
-            <Icon className="w-6 h-6 text-rose-700" aria-hidden="true" />
-            <div className="font-display text-3xl md:text-4xl font-bold text-slate-900 tabular-nums">
+            <Icon className="w-6 h-6 text-amber-500" aria-hidden="true" />
+            <div className="font-display text-3xl md:text-4xl font-bold text-white tabular-nums">
               {value != null ? <CountUp end={value} suffix={suffix} run={visible} /> : display}
             </div>
-            <p className="text-sm text-slate-500 leading-snug max-w-[14rem]">{label}</p>
+            <p className="text-sm text-neutral-500 leading-snug max-w-[14rem]">{label}</p>
           </div>
         ))}
       </div>

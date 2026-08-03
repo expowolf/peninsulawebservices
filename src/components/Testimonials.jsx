@@ -14,7 +14,7 @@ const testimonials = [
       'Our new site finally looks as good as our food. We started getting reservation calls the same week it went live.',
     name: 'Sample Client',
     role: 'Owner, Waterfront Restaurant · Sturgeon Bay',
-    accent: 'bg-rose-600',
+    accent: 'bg-amber-500',
   },
   {
     quote:
@@ -37,7 +37,7 @@ const initials = (name) =>
 
 export default function Testimonials() {
   return (
-    <section className="py-16 md:py-24 bg-slate-50 border-y border-slate-100">
+    <section className="py-16 md:py-24 bg-neutral-950 border-y border-neutral-800">
       <div className="container-x">
         <Reveal className="max-w-2xl mb-12">
           <span className="eyebrow">What Clients Say</span>
@@ -48,14 +48,14 @@ export default function Testimonials() {
           {testimonials.map(({ quote, name, role, accent }, i) => (
             <Reveal key={role} delay={i * 100}>
               <figure className="card h-full p-7 flex flex-col">
-                <Quote className="w-7 h-7 text-rose-200 mb-3" aria-hidden="true" />
+                <Quote className="w-7 h-7 text-amber-500/30 mb-3" aria-hidden="true" />
                 <div className="flex gap-0.5 mb-3 text-amber-400" aria-label="5 out of 5 stars">
                   {[...Array(5)].map((_, s) => (
                     <Star key={s} className="w-4 h-4 fill-current" />
                   ))}
                 </div>
-                <blockquote className="text-slate-700 leading-relaxed flex-1">“{quote}”</blockquote>
-                <figcaption className="flex items-center gap-3 mt-6 pt-5 border-t border-slate-100">
+                <blockquote className="text-neutral-300 leading-relaxed flex-1">“{quote}”</blockquote>
+                <figcaption className="flex items-center gap-3 mt-6 pt-5 border-t border-neutral-800">
                   <span
                     className={`w-10 h-10 rounded-full ${accent} text-white grid place-items-center text-sm font-semibold`}
                     aria-hidden="true"
@@ -63,8 +63,8 @@ export default function Testimonials() {
                     {initials(name)}
                   </span>
                   <span>
-                    <span className="block font-semibold text-slate-900 text-sm">{name}</span>
-                    <span className="block text-xs text-slate-500">{role}</span>
+                    <span className="block font-semibold text-white text-sm">{name}</span>
+                    <span className="block text-xs text-neutral-500">{role}</span>
                   </span>
                 </figcaption>
               </figure>

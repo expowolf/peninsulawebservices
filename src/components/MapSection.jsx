@@ -13,7 +13,7 @@ const services = [
 
 function MapFallback() {
   return (
-    <div className="h-[360px] md:h-[460px] w-full rounded-3xl bg-gradient-to-br from-rose-50 to-amber-50 ring-1 ring-slate-900/10 grid place-items-center">
+    <div className="h-[360px] md:h-[460px] w-full rounded-3xl bg-gradient-to-br from-amber-500/10 to-amber-50 ring-1 ring-slate-900/10 grid place-items-center">
       <span className="text-sm text-slate-400">Loading map…</span>
     </div>
   );
@@ -40,16 +40,16 @@ export default function MapSection() {
   }, []);
 
   return (
-    <section id="products" ref={ref} className="py-20 md:py-28 bg-white">
+    <section id="products" ref={ref} className="py-20 md:py-28 bg-neutral-900">
       <div className="container-x">
         <Reveal className="max-w-2xl mb-12">
-          <p className="text-xs uppercase tracking-[0.28em] font-semibold text-slate-500 mb-3">
+          <p className="text-xs uppercase tracking-[0.28em] font-semibold text-neutral-500 mb-3">
             Wisconsin-Based, Working Everywhere
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold">
             A studio close to home, working with clients anywhere.
           </h2>
-          <p className="text-slate-600 mt-4 text-lg">
+          <p className="text-neutral-400 mt-4 text-lg">
             Headquartered in Wisconsin and partnering with businesses across the country —
             same responsive, hands-on service whether you're down the street or across the map.
           </p>
@@ -71,20 +71,20 @@ export default function MapSection() {
           <div className="lg:col-span-5 space-y-4">
             {services.map(({ icon: Icon, name, desc }, i) => (
               <Reveal key={name} delay={i * 90}>
-                <div className="flex items-start gap-4 p-5 rounded-2xl border border-slate-200 hover:border-rose-200 hover:shadow-lg transition-all">
-                  <span className="w-11 h-11 rounded-lg bg-rose-50 grid place-items-center shrink-0">
-                    <Icon className="w-5 h-5 text-rose-700" aria-hidden="true" />
+                <div className="flex items-start gap-4 p-5 rounded-2xl border border-neutral-800 hover:border-amber-500/30 hover:shadow-lg transition-all">
+                  <span className="w-11 h-11 rounded-lg bg-amber-500/10 grid place-items-center shrink-0">
+                    <Icon className="w-5 h-5 text-amber-500" aria-hidden="true" />
                   </span>
                   <div>
-                    <h3 className="font-bold text-slate-900">{name}</h3>
-                    <p className="text-sm text-slate-600 mt-0.5">{desc}</p>
+                    <h3 className="font-bold text-white">{name}</h3>
+                    <p className="text-sm text-neutral-400 mt-0.5">{desc}</p>
                   </div>
                 </div>
               </Reveal>
             ))}
             <a
               href="#/services"
-              className="inline-flex items-center gap-1.5 mt-2 text-sm font-semibold text-slate-900 hover:gap-2.5 transition-all"
+              className="inline-flex items-center gap-1.5 mt-2 text-sm font-semibold text-white hover:gap-2.5 transition-all"
             >
               Explore all services <ArrowUpRight className="w-4 h-4" />
             </a>

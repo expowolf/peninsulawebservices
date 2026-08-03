@@ -30,18 +30,18 @@ const columns = [
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-white border-t border-slate-100">
+    <footer className="bg-neutral-900 border-t border-neutral-800">
       {/* Top: brand tagline + nav rows */}
       <div className="container-x py-16 grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="flex items-center gap-2 mb-5">
             <Logo size={32} />
-            <span className="font-display font-bold text-slate-900">Peninsula Web Services</span>
+            <span className="font-display font-bold text-white">Peninsula Web Services</span>
           </div>
-          <p className="font-display text-2xl md:text-3xl font-bold text-slate-900 leading-tight max-w-md">
+          <p className="font-display text-2xl md:text-3xl font-bold text-white leading-tight max-w-md">
             High-performance websites &amp; AI tools for modern businesses.
           </p>
-          <p className="text-slate-500 mt-4 text-sm">Design. Development. Results.</p>
+          <p className="text-neutral-500 mt-4 text-sm">Design. Development. Results.</p>
         </div>
 
         <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
@@ -51,7 +51,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-sm text-slate-700 hover:text-slate-900 transition-colors break-all">
+                    <a href={l.href} className="text-sm text-neutral-300 hover:text-white transition-colors break-all">
                       {l.label}
                     </a>
                   </li>
@@ -63,12 +63,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom: legal bar */}
-      <div className="border-t border-slate-100">
-        <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div className="border-t border-neutral-800">
+        <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500">
           <p>© {year} Peninsula Web Services. All rights reserved.</p>
           <ul className="flex items-center gap-5">
-            <li><a href="#" className="hover:text-slate-900">Privacy</a></li>
-            <li><a href="#" className="hover:text-slate-900">Terms</a></li>
+            <li><a href="#" className="hover:text-white">Privacy</a></li>
+            <li><a href="#" className="hover:text-white">Terms</a></li>
             <li><span className="text-slate-400">Made in Wisconsin</span></li>
           </ul>
         </div>

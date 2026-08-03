@@ -146,9 +146,9 @@ function BillingToggle() {
 
   return (
     <div className="flex justify-center">
-      <div ref={wrapRef} className="relative flex w-fit items-center rounded-full bg-white/10 p-1">
+      <div ref={wrapRef} className="relative flex w-fit items-center rounded-full bg-neutral-900/10 p-1">
         <motion.div
-          className="absolute left-0 top-1 bottom-1 rounded-full bg-rose-600"
+          className="absolute left-0 top-1 bottom-1 rounded-full bg-amber-500"
           style={pill}
           transition={{ type: 'spring', stiffness: 500, damping: 40 }}
         />
@@ -163,7 +163,7 @@ function BillingToggle() {
           >
             {m.label}
             {m.note && (
-              <span className={`hidden sm:inline ml-1 ${mode === m.id ? 'text-white/80' : 'text-rose-400'}`}>
+              <span className={`hidden sm:inline ml-1 ${mode === m.id ? 'text-white/80' : 'text-amber-400'}`}>
                 ({m.note})
               </span>
             )}
@@ -195,13 +195,13 @@ function PricingCard({ plan, index }) {
       whileInView={{ y: plan.isPopular && isDesktop ? -20 : 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, type: 'spring', stiffness: 100, damping: 20, delay: index * 0.15 }}
-      className={`rounded-2xl p-8 flex flex-col relative bg-white/[0.04] backdrop-blur-sm ${
-        plan.isPopular ? 'border-2 border-rose-500 shadow-xl shadow-rose-900/30' : 'border border-white/10'
+      className={`rounded-2xl p-8 flex flex-col relative bg-neutral-900/[0.04] backdrop-blur-sm ${
+        plan.isPopular ? 'border-2 border-amber-500 shadow-xl shadow-amber-900/30' : 'border border-white/10'
       }`}
     >
       {plan.isPopular && (
         <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
-          <div className="bg-rose-600 py-1.5 px-4 rounded-full flex items-center gap-1.5">
+          <div className="bg-amber-500 py-1.5 px-4 rounded-full flex items-center gap-1.5">
             <Star className="text-white h-4 w-4 fill-current" />
             <span className="text-white text-sm font-semibold">Most Popular</span>
           </div>
@@ -219,12 +219,12 @@ function PricingCard({ plan, index }) {
           </span>
           <span className="text-sm font-semibold text-slate-400">/ {period}</span>
         </div>
-        <p className="text-xs text-slate-500 mt-2">{billedNote}</p>
+        <p className="text-xs text-neutral-500 mt-2">{billedNote}</p>
 
         <ul className="mt-8 space-y-3 text-sm leading-6 text-left text-slate-300">
           {plan.features.map((f) => (
             <li key={f} className="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-rose-500" aria-hidden="true" />
+              <Check className="h-6 w-5 flex-none text-amber-500" aria-hidden="true" />
               {f}
             </li>
           ))}
@@ -235,8 +235,8 @@ function PricingCard({ plan, index }) {
             href={plan.href}
             className={`inline-flex items-center justify-center w-full h-11 rounded-lg px-8 text-sm font-semibold transition-colors ${
               plan.isPopular
-                ? 'bg-rose-600 text-white hover:bg-rose-500'
-                : 'border border-white/20 text-white hover:bg-white/10'
+                ? 'bg-amber-500 text-white hover:bg-amber-500'
+                : 'border border-white/20 text-white hover:bg-neutral-900/10'
             }`}
           >
             {plan.buttonText}

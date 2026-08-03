@@ -28,14 +28,14 @@ const cases = [
     Img: ShopImage,
     label: 'Local Services',
     overlay: 'View case',
-    bg: 'bg-rose-50',
+    bg: 'bg-amber-500/10',
     desc: 'Plumbers, contractors, guides.',
   },
   {
     Img: RestaurantImage,
     label: 'Tourism & Events',
     overlay: 'View case',
-    bg: 'bg-rose-50',
+    bg: 'bg-amber-500/10',
     desc: 'Seasonal events and attractions.',
   },
 ];
@@ -50,15 +50,15 @@ export default function UseCases() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-slate-50 border-y border-slate-100">
+    <section className="py-20 md:py-28 bg-neutral-950 border-y border-neutral-800">
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
             <h2 className="font-display text-3xl md:text-5xl leading-[1.05]">
-              <span className="font-light text-slate-500 block">Built for</span>
-              <span className="font-bold text-slate-900">Door County businesses.</span>
+              <span className="font-light text-neutral-500 block">Built for</span>
+              <span className="font-bold text-white">Door County businesses.</span>
             </h2>
-            <p className="text-slate-600 mt-3 max-w-xl">
+            <p className="text-neutral-400 mt-3 max-w-xl">
               From the restaurants on 3rd Avenue to shops in Sister Bay — every site is
               tuned to how locals and tourists actually search.
             </p>
@@ -67,14 +67,14 @@ export default function UseCases() {
             <button
               onClick={() => scroll(-1)}
               aria-label="Previous"
-              className="w-11 h-11 grid place-items-center rounded-full border-2 border-slate-200 hover:border-slate-900 transition-colors"
+              className="w-11 h-11 grid place-items-center rounded-full border-2 border-neutral-800 hover:border-slate-900 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => scroll(1)}
               aria-label="Next"
-              className="w-11 h-11 grid place-items-center rounded-full border-2 border-slate-200 hover:border-slate-900 transition-colors"
+              className="w-11 h-11 grid place-items-center rounded-full border-2 border-neutral-800 hover:border-slate-900 transition-colors"
             >
               <ArrowRight className="w-4 h-4" />
             </button>
@@ -88,14 +88,14 @@ export default function UseCases() {
           {cases.map(({ Img, label, overlay, bg, desc }, i) => (
             <article
               key={i}
-              className="relative shrink-0 w-[78%] sm:w-[48%] lg:w-[32%] snap-start rounded-2xl overflow-hidden bg-white shadow-sm group cursor-pointer"
+              className="relative shrink-0 w-[78%] sm:w-[48%] lg:w-[32%] snap-start rounded-2xl overflow-hidden bg-neutral-900 shadow-sm group cursor-pointer"
             >
               <div className={`h-56 overflow-hidden ${bg} transition-transform duration-500 group-hover:scale-[1.03]`}>
                 <Img />
               </div>
               <div className="p-5">
-                <p className="text-sm text-slate-500">{desc}</p>
-                <h3 className="font-bold text-lg text-slate-900 mt-1">{label}</h3>
+                <p className="text-sm text-neutral-500">{desc}</p>
+                <h3 className="font-bold text-lg text-white mt-1">{label}</h3>
               </div>
               <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 bg-slate-900/90 backdrop-blur text-white text-xs font-semibold px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                 <Play className="w-3 h-3 fill-current" /> {overlay}

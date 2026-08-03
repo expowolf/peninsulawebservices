@@ -17,8 +17,8 @@ export default function IconTicker() {
   // Duplicate the row so the marquee loops seamlessly
   const row = [...items, ...items];
   return (
-    <section className="border-y border-slate-200 bg-white py-10 overflow-hidden">
-      <p className="text-center text-sm text-slate-500 mb-6">
+    <section className="border-y border-neutral-800 bg-neutral-900 py-10 overflow-hidden">
+      <p className="text-center text-sm text-neutral-500 mb-6">
         Everything modern websites need — built in from day one.
       </p>
       <div
@@ -26,8 +26,8 @@ export default function IconTicker() {
         style={{ animation: 'ticker 32s linear infinite', width: 'max-content' }}
       >
         {row.map(({ icon: Icon, label }, i) => (
-          <div key={i} className="flex items-center gap-2 text-slate-600 shrink-0">
-            <Icon className="w-5 h-5 text-rose-700" aria-hidden="true" />
+          <div key={i} className="flex items-center gap-2 text-neutral-400 shrink-0">
+            <Icon className="w-5 h-5 text-amber-500" aria-hidden="true" />
             <span className="font-medium text-sm">{label}</span>
           </div>
         ))}

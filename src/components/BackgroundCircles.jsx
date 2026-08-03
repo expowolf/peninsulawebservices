@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
  */
 
 const VARIANT = {
-  border: ['border-rose-600/60', 'border-rose-400/50', 'border-slate-300/30'],
-  gradient: 'from-rose-600/30',
+  border: ['border-amber-500/60', 'border-amber-400/50', 'border-neutral-700/30'],
+  gradient: 'from-amber-500/30',
 };
 
 function AnimatedGrid() {
@@ -35,7 +35,7 @@ export default function BackgroundCircles({
 }) {
   const wrapperClass = backdrop
     ? `absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden pointer-events-none ${className}`
-    : `relative flex w-full items-center justify-center overflow-hidden bg-white ${
+    : `relative flex w-full items-center justify-center overflow-hidden bg-neutral-900 ${
         contained ? 'min-h-[72vh]' : 'h-screen'
       } ${className}`;
 
@@ -72,7 +72,7 @@ export default function BackgroundCircles({
           )}
           {description && (
             <motion.p
-              className="mt-6 text-lg md:text-xl text-slate-700"
+              className="mt-6 text-lg md:text-xl text-neutral-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.25, duration: 0.7 }}

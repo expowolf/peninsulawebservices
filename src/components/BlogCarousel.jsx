@@ -7,7 +7,7 @@ const posts = [
     tag: 'Local SEO',
     title: '5 Google ranking tips for Door County businesses',
     date: 'Coming soon',
-    accent: 'from-rose-200 to-rose-50',
+    accent: 'from-amber-500/30 to-amber-500/10',
   },
   {
     tag: 'AI',
@@ -25,7 +25,7 @@ const posts = [
     tag: 'Marketing',
     title: 'Tourism season prep: a 4-week checklist',
     date: 'Coming soon',
-    accent: 'from-rose-200 to-rose-50',
+    accent: 'from-amber-500/30 to-amber-500/10',
   },
   {
     tag: 'Case Study',
@@ -45,21 +45,21 @@ export default function BlogCarousel() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-slate-50 border-y border-slate-100">
+    <section className="py-20 md:py-28 bg-neutral-950 border-y border-neutral-800">
       <div className="container-x">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] font-semibold text-slate-500 mb-3">
+            <p className="text-xs uppercase tracking-[0.28em] font-semibold text-neutral-500 mb-3">
               From the Studio
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-slate-900">
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">
               Notes &amp; insights.
             </h2>
           </div>
           <div className="flex items-center gap-3">
             <a
               href="#/contact"
-              className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 hover:gap-2.5 transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:gap-2.5 transition-all"
             >
               View all <ArrowUpRight className="w-4 h-4" />
             </a>
@@ -67,14 +67,14 @@ export default function BlogCarousel() {
               <button
                 onClick={() => scroll(-1)}
                 aria-label="Previous"
-                className="w-11 h-11 grid place-items-center rounded-full border-2 border-slate-200 hover:border-slate-900 transition-colors bg-white"
+                className="w-11 h-11 grid place-items-center rounded-full border-2 border-neutral-800 hover:border-slate-900 transition-colors bg-neutral-900"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={() => scroll(1)}
                 aria-label="Next"
-                className="w-11 h-11 grid place-items-center rounded-full border-2 border-slate-200 hover:border-slate-900 transition-colors bg-white"
+                className="w-11 h-11 grid place-items-center rounded-full border-2 border-neutral-800 hover:border-slate-900 transition-colors bg-neutral-900"
               >
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -89,20 +89,20 @@ export default function BlogCarousel() {
           {posts.map((post, i) => (
             <article
               key={i}
-              className="shrink-0 w-[78%] sm:w-[48%] lg:w-[30%] snap-start bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition-shadow group"
+              className="shrink-0 w-[78%] sm:w-[48%] lg:w-[30%] snap-start bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800 hover:shadow-lg transition-shadow group"
             >
               <div className={`h-44 bg-gradient-to-br ${post.accent} transition-transform duration-500 group-hover:scale-[1.02]`} />
               <div className="p-6">
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
+                <div className="flex items-center justify-between text-xs text-neutral-500 mb-3">
                   <span className="inline-block px-2.5 py-1 rounded-full bg-slate-900 text-white text-[10px] font-bold uppercase tracking-wider">
                     {post.tag}
                   </span>
                   <span>{post.date}</span>
                 </div>
-                <h3 className="font-bold text-slate-900 leading-snug mb-4 group-hover:text-rose-700 transition-colors">
+                <h3 className="font-bold text-white leading-snug mb-4 group-hover:text-amber-500 transition-colors">
                   {post.title}
                 </h3>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 group-hover:gap-2.5 transition-all">
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white group-hover:gap-2.5 transition-all">
                   Read article <ArrowUpRight className="w-4 h-4" />
                 </span>
               </div>

@@ -34,12 +34,12 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section className="py-16 md:py-24 bg-slate-50 border-y border-slate-100">
+    <section className="py-16 md:py-24 bg-neutral-950 border-y border-neutral-800">
       <div className="container-x">
         <Reveal className="max-w-2xl mb-12">
           <span className="eyebrow">Simple Pricing</span>
           <h2 className="text-3xl md:text-4xl font-bold">Honest pricing, no surprises.</h2>
-          <p className="text-slate-600 mt-3">
+          <p className="text-neutral-400 mt-3">
             Straightforward packages for local businesses. Not sure which fits? Just ask — the quote is always free.
           </p>
         </Reveal>
@@ -50,25 +50,25 @@ export default function Pricing() {
               <div
                 className={`relative rounded-xl p-8 h-full flex flex-col transition-all duration-300 ${
                   popular
-                    ? 'bg-white border-2 border-rose-700 shadow-xl md:-translate-y-2'
-                    : 'bg-white border border-slate-200 hover:-translate-y-1 hover:shadow-lg'
+                    ? 'bg-neutral-900 border-2 border-amber-500 shadow-xl md:-translate-y-2'
+                    : 'bg-neutral-900 border border-neutral-800 hover:-translate-y-1 hover:shadow-lg'
                 }`}
               >
                 {popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-900 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
                     Most Popular
                   </span>
                 )}
-                <h3 className="text-lg font-bold text-slate-900">{name}</h3>
+                <h3 className="text-lg font-bold text-white">{name}</h3>
                 <div className="mt-3 mb-1 flex items-baseline gap-1">
-                  <span className="font-display text-4xl font-bold text-slate-900">{price}</span>
+                  <span className="font-display text-4xl font-bold text-white">{price}</span>
                   {price !== 'Custom' && <span className="text-slate-400 text-sm">starting</span>}
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">{blurb}</p>
+                <p className="text-neutral-400 text-sm leading-relaxed mb-6">{blurb}</p>
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
-                      <Check className="w-4 h-4 text-rose-700 shrink-0 mt-0.5" aria-hidden="true" />
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-neutral-300">
+                      <Check className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" aria-hidden="true" />
                       {f}
                     </li>
                   ))}

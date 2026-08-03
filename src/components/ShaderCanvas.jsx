@@ -39,7 +39,7 @@ void main() {
   float b = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
   float c = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-  // Brand-tinted: cherry (rose-600), amber (amber-500), burgundy
+  // Brand-tinted: cherry (amber-500), amber (amber-500), burgundy
   vec3 cherry  = vec3(0.890, 0.110, 0.235);
   vec3 amber   = vec3(0.961, 0.620, 0.043);
   vec3 deep    = vec3(0.550, 0.040, 0.180);
