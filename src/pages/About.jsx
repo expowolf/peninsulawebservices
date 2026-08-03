@@ -1,77 +1,37 @@
 import { lazy, Suspense } from 'react';
-import { Heart, Target, Zap, MapPin, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Reveal from '../components/Reveal.jsx';
-import { TeamImage } from '../components/ImagePlaceholder.jsx';
 
-// framer-motion-backed hero; only loads on /about
-const BackgroundCircles = lazy(() => import('../components/BackgroundCircles.jsx'));
-
-const values = [
-  { icon: Heart, title: 'Local & Personal', text: 'You talk to the person building your site — not an account manager in another state.' },
-  { icon: Target, title: 'Marketing-Driven', text: 'NWTC marketing training means we build for real results, not just looks.' },
-  { icon: Zap, title: 'Modern & Fast', text: 'Your site works on phones, loads fast, and ranks well on Google.' },
-  { icon: MapPin, title: 'Door County Focus', text: 'We understand the local market and the seasonal tourism economy.' },
-];
+// framer-motion-backed bento; only loads on /about
+const BentoGrid = lazy(() => import('../components/BentoGrid.jsx'));
 
 export default function About() {
   return (
-    <div className="relative overflow-hidden">
-      {/* Ambient rose backdrop — rotates behind the whole page, no text of its own */}
-      <Suspense fallback={null}>
-        <BackgroundCircles backdrop />
-      </Suspense>
-
-      <div className="page relative z-10">
-        <Reveal className="max-w-3xl mb-14">
-          <span className="eyebrow">About Us</span>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Local roots. Modern solutions.</h1>
-        </Reveal>
-
-      <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-        <Reveal>
-          <div className="space-y-5 text-lg text-neutral-400 leading-relaxed">
-            <p>
-              Peninsula Web Services is a small web studio in <strong className="text-white">Sturgeon Bay, Wisconsin</strong>.
-              We build websites and tools for local businesses — restaurants, shops, services, and anyone
-              trying to grow online.
-            </p>
-            <p>
-              Our founder completed formal marketing training at <strong className="text-white">NWTC</strong>,
-              so every website we build is designed not just to look good, but to actually
-              <strong className="text-white"> bring in customers</strong>.
-            </p>
-            <p>
-              We're local, we understand Door County, and we genuinely care about your success —
-              because when your business grows, so does ours.
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={150}>
-          <div className="rounded-2xl overflow-hidden shadow-xl shadow-slate-900/5 ring-1 ring-slate-900/5">
-            <TeamImage />
-          </div>
-        </Reveal>
-      </div>
-
-      <Reveal className="max-w-2xl mb-10">
-        <span className="eyebrow">Why Work With Us</span>
-        <h2 className="text-3xl font-bold">A partner who's invested in your success.</h2>
+    <div className="page">
+      <Reveal className="max-w-3xl mb-14">
+        <span className="eyebrow">About Us</span>
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-6">Local roots. Modern solutions.</h1>
+        <div className="space-y-5 text-lg text-neutral-400 leading-relaxed">
+          <p>
+            Peninsula Web Services is an independent web studio in{' '}
+            <strong className="text-white">Sturgeon Bay, Wisconsin</strong>. We build high-performance
+            websites and AI tools for businesses that want to look exceptional and perform even better.
+          </p>
+          <p>
+            Our founder completed formal marketing training at <strong className="text-white">NWTC</strong>,
+            so every site we build is engineered not just to look good, but to
+            <strong className="text-white"> bring in customers</strong>. You work directly with the person
+            building your site — no account managers, no offshore handoffs.
+          </p>
+        </div>
       </Reveal>
-      <div className="grid sm:grid-cols-2 gap-6 mb-16">
-        {values.map(({ icon: Icon, title, text }, i) => (
-          <Reveal key={title} delay={i * 80}>
-            <div className="card h-full p-7 flex gap-4">
-              <div className="w-11 h-11 rounded-lg bg-steel-500/10 flex items-center justify-center shrink-0">
-                <Icon className="w-5 h-5 text-steel-500" />
-              </div>
-              <div>
-                <h3 className="font-bold mb-1">{title}</h3>
-                <p className="text-neutral-400 leading-relaxed">{text}</p>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+
+      {/* Bento — replaces the old team image + animated backdrop */}
+      <Reveal className="mb-16">
+        <Suspense fallback={<div className="h-[500px]" />}>
+          <BentoGrid />
+        </Suspense>
+      </Reveal>
 
       <Reveal>
         <div className="text-center">
@@ -81,7 +41,6 @@ export default function About() {
           </a>
         </div>
       </Reveal>
-      </div>
     </div>
   );
 }
