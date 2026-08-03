@@ -13,7 +13,7 @@ const services = [
 
 function MapFallback() {
   return (
-    <div className="h-[360px] md:h-[460px] w-full rounded-3xl bg-gradient-to-br from-amber-500/10 to-amber-50 ring-1 ring-slate-900/10 grid place-items-center">
+    <div className="h-[360px] md:h-[460px] w-full rounded-3xl bg-gradient-to-br from-steel-500/10 to-steel-50 ring-1 ring-slate-900/10 grid place-items-center">
       <span className="text-sm text-slate-400">Loading map…</span>
     </div>
   );
@@ -71,9 +71,9 @@ export default function MapSection() {
           <div className="lg:col-span-5 space-y-4">
             {services.map(({ icon: Icon, name, desc }, i) => (
               <Reveal key={name} delay={i * 90}>
-                <div className="flex items-start gap-4 p-5 rounded-2xl border border-neutral-800 hover:border-amber-500/30 hover:shadow-lg transition-all">
-                  <span className="w-11 h-11 rounded-lg bg-amber-500/10 grid place-items-center shrink-0">
-                    <Icon className="w-5 h-5 text-amber-500" aria-hidden="true" />
+                <div className="flex items-start gap-4 p-5 rounded-2xl border border-neutral-800 hover:border-steel-500/30 hover:shadow-lg transition-all">
+                  <span className="w-11 h-11 rounded-lg bg-steel-500/10 grid place-items-center shrink-0">
+                    <Icon className="w-5 h-5 text-steel-500" aria-hidden="true" />
                   </span>
                   <div>
                     <h3 className="font-bold text-white">{name}</h3>

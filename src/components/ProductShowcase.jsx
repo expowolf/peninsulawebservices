@@ -14,7 +14,7 @@ const products = [
         <BuildAnimation />
       </div>
     ),
-    accent: 'from-amber-500/20 to-amber-50',
+    accent: 'from-steel-500/20 to-steel-50',
   },
   {
     id: 'ai',
@@ -25,7 +25,7 @@ const products = [
       <div className="grid place-items-center w-full">
         <div className="relative bg-neutral-900 rounded-2xl shadow-xl ring-1 ring-slate-900/5 p-6 w-full max-w-md">
           <div className="flex items-center gap-2 mb-4 pb-3 border-b border-neutral-800">
-            <Bot className="w-5 h-5 text-amber-500" />
+            <Bot className="w-5 h-5 text-steel-500" />
             <span className="text-sm font-semibold text-white">AI Concierge</span>
             <span className="ml-auto w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           </div>
@@ -33,7 +33,7 @@ const products = [
             <div className="bg-slate-100 rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm text-neutral-300 max-w-[80%]">
               Are you open Sunday?
             </div>
-            <div className="ml-auto bg-amber-500 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm max-w-[80%]">
+            <div className="ml-auto bg-steel-500 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm max-w-[80%]">
               Yes — Sun 10am–8pm. Want me to book a table?
             </div>
             <div className="bg-slate-100 rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm text-neutral-300 max-w-[40%]">
@@ -47,7 +47,7 @@ const products = [
         </div>
       </div>
     ),
-    accent: 'from-violet-100 to-amber-500/10',
+    accent: 'from-violet-100 to-steel-500/10',
   },
   {
     id: 'seo',
@@ -59,7 +59,7 @@ const products = [
         <WisconsinMap />
       </div>
     ),
-    accent: 'from-amber-100 to-amber-500/10',
+    accent: 'from-steel-100 to-steel-500/10',
   },
 ];
 
@@ -97,10 +97,10 @@ export default function ProductShowcase() {
                   <div className="flex items-start gap-3">
                     <span
                       className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 ${
-                        isActive ? 'bg-neutral-900/10' : 'bg-amber-500/10'
+                        isActive ? 'bg-neutral-900/10' : 'bg-steel-500/10'
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${isActive ? 'text-amber-300' : 'text-amber-500'}`} aria-hidden="true" />
+                      <Icon className={`w-5 h-5 ${isActive ? 'text-steel-300' : 'text-steel-500'}`} aria-hidden="true" />
                     </span>
                     <div>
                       <div className={`font-bold text-base ${isActive ? '' : 'text-white'}`}>{name}</div>

@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
  */
 
 const VARIANT = {
-  border: ['border-amber-500/60', 'border-amber-400/50', 'border-neutral-700/30'],
-  gradient: 'from-amber-500/30',
+  border: ['border-steel-500/60', 'border-steel-400/50', 'border-neutral-700/30'],
+  gradient: 'from-steel-500/30',
 };
 
 function AnimatedGrid() {

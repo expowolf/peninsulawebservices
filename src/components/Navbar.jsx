@@ -26,8 +26,8 @@ export default function Navbar({ current }) {
         {/* Left: logo + wordmark */}
         <a href="#/" className="flex items-center gap-2">
           <Logo size={30} />
-          <span className="hidden sm:block font-display font-bold text-white text-sm">
-            Peninsula Web Services
+          <span className="hidden sm:block font-wordmark font-semibold text-white text-lg tracking-[0.12em] uppercase leading-none">
+            Peninsula
           </span>
         </a>
 

@@ -39,12 +39,12 @@ void main() {
   float b = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
   float c = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-  // Brand-tinted: cherry (amber-500), amber (amber-500), burgundy
-  vec3 cherry  = vec3(0.890, 0.110, 0.235);
-  vec3 amber   = vec3(0.961, 0.620, 0.043);
-  vec3 deep    = vec3(0.550, 0.040, 0.180);
+  // Brand-tinted: steel blue, light silver, deep navy
+  vec3 steel  = vec3(0.329, 0.470, 0.690);   // #5478b0
+  vec3 silver = vec3(0.741, 0.800, 0.900);   // light steel highlight
+  vec3 navy   = vec3(0.086, 0.137, 0.247);   // #16233f
 
-  vec3 color = cherry * a + amber * b * 0.85 + deep * c * 0.6;
+  vec3 color = steel * a + silver * b * 0.7 + navy * c * 0.9;
   gl_FragColor = vec4(color, 1.0);
 }
 `;

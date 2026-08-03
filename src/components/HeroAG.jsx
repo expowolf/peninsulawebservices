@@ -15,7 +15,7 @@ export default function HeroAG() {
   return (
     <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-black isolate">
       {/* Shader background */}
-      <Suspense fallback={<div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-black to-amber-950" />}>
+      <Suspense fallback={<div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-black to-steel-950" />}>
         <ShaderCanvas />
       </Suspense>
 
@@ -40,7 +40,7 @@ export default function HeroAG() {
           baseDelay={0.1}
           lines={[
             { text: 'Websites that', accent: 'text-white' },
-            { text: 'mean business.', accent: 'text-amber-400' },
+            { text: 'mean business.', accent: 'text-steel-400' },
           ]}
           className="font-display font-bold leading-[0.95] tracking-tight mb-8 mx-auto max-w-5xl text-white"
         />
@@ -61,9 +61,9 @@ export default function HeroAG() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a
             href="#/contact"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold rounded-full
-                       bg-amber-500 text-black border-2 border-amber-500
-                       hover:bg-amber-400 hover:border-amber-400 transition-all active:scale-[0.98] group"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold rounded-none
+                       bg-white text-black border border-white
+                       hover:bg-steel-400 hover:border-steel-400 hover:text-white transition-all active:scale-[0.98] group"
           >
             Get a Free Quote
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

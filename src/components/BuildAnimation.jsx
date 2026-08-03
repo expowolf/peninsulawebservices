@@ -16,11 +16,11 @@ export default function BuildAnimation() {
   return (
     <div className="relative anim-float" aria-hidden="true">
       {/* Browser frame */}
-      <div className="rounded-2xl bg-neutral-900 shadow-2xl shadow-amber-900/15 ring-1 ring-slate-900/5 overflow-hidden">
+      <div className="rounded-2xl bg-neutral-900 shadow-2xl shadow-steel-900/15 ring-1 ring-slate-900/5 overflow-hidden">
         {/* Title bar */}
         <div className="flex items-center gap-2 px-4 h-10 bg-slate-100 border-b border-neutral-800">
           <span className="w-3 h-3 rounded-full bg-red-400" />
-          <span className="w-3 h-3 rounded-full bg-amber-400" />
+          <span className="w-3 h-3 rounded-full bg-steel-400" />
           <span className="w-3 h-3 rounded-full bg-green-400" />
           <div className="ml-3 flex-1 h-5 rounded bg-neutral-900 border border-neutral-800 flex items-center px-2">
             <span className="text-[10px] text-slate-400 truncate">yourbusiness.com</span>
@@ -28,10 +28,10 @@ export default function BuildAnimation() {
         </div>
 
         {/* Canvas being built */}
-        <div className="relative p-4 h-64 bg-gradient-to-b from-amber-500/10/60 to-white">
+        <div className="relative p-4 h-64 bg-gradient-to-b from-steel-500/10/60 to-white">
           {/* Nav bar */}
           <div {...step(0.2)} className="anim-assemble flex items-center justify-between mb-3">
-            <div className="h-3 w-16 rounded bg-amber-500" />
+            <div className="h-3 w-16 rounded bg-steel-500" />
             <div className="flex gap-2">
               <div className="h-2 w-8 rounded bg-slate-300" />
               <div className="h-2 w-8 rounded bg-slate-300" />
@@ -47,7 +47,7 @@ export default function BuildAnimation() {
               <div {...step(1.2)} className="anim-type h-2 rounded bg-slate-300" style={{ '--w': '100%', animationDelay: '1.2s' }} />
               <div {...step(1.4)} className="anim-type h-2 rounded bg-slate-300" style={{ '--w': '85%', animationDelay: '1.4s' }} />
             </div>
-            <div {...step(0.7)} className="anim-assemble col-span-2 rounded-lg bg-gradient-to-br from-amber-500/30 to-amber-400" />
+            <div {...step(0.7)} className="anim-assemble col-span-2 rounded-lg bg-gradient-to-br from-steel-500/30 to-steel-400" />
           </div>
 
           {/* Card row */}
@@ -59,8 +59,8 @@ export default function BuildAnimation() {
 
           {/* CTA button (cursor clicks this) */}
           <div {...step(2.3)} className="anim-assemble inline-flex">
-            <div className="h-7 px-4 rounded-lg bg-amber-400 flex items-center">
-              <div className="h-2 w-12 rounded bg-amber-800/40" />
+            <div className="h-7 px-4 rounded-lg bg-steel-400 flex items-center">
+              <div className="h-2 w-12 rounded bg-steel-800/40" />
             </div>
           </div>
 
@@ -73,8 +73,8 @@ export default function BuildAnimation() {
       </div>
 
       {/* Floating "Done!" badge */}
-      <div className="absolute -bottom-4 -right-3 bg-amber-500 text-white text-xs font-semibold px-3 py-2 rounded-xl shadow-lg flex items-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-amber-400" />
+      <div className="absolute -bottom-4 -right-3 bg-steel-500 text-white text-xs font-semibold px-3 py-2 rounded-xl shadow-lg flex items-center gap-1.5">
+        <span className="w-2 h-2 rounded-full bg-steel-400" />
         Launched
       </div>
     </div>

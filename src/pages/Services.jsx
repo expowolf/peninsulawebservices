@@ -39,15 +39,15 @@ export default function Services() {
         {services.map(({ icon: Icon, title, desc, features }, i) => (
           <Reveal key={title} delay={i * 100}>
             <div className="card h-full p-8 flex flex-col">
-              <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center mb-5">
-                <Icon className="w-6 h-6 text-amber-500" />
+              <div className="w-12 h-12 rounded-lg bg-steel-500/10 flex items-center justify-center mb-5">
+                <Icon className="w-6 h-6 text-steel-500" />
               </div>
               <h2 className="text-xl font-bold mb-3">{title}</h2>
               <p className="text-neutral-400 mb-6 leading-relaxed">{desc}</p>
               <ul className="mt-auto space-y-2.5 pt-6 border-t border-neutral-800">
                 {features.map((f) => (
                   <li key={f} className="flex items-center gap-2.5 text-neutral-300">
-                    <Check className="w-4 h-4 text-amber-500 shrink-0" />
+                    <Check className="w-4 h-4 text-steel-500 shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -58,7 +58,7 @@ export default function Services() {
       </div>
 
       <Reveal>
-        <div className="mt-14 bg-amber-500/10 rounded-2xl p-10 md:p-12 text-center">
+        <div className="mt-14 bg-steel-500/10 rounded-2xl p-10 md:p-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">Not sure what you need?</h2>
           <p className="text-neutral-400 mb-6 max-w-lg mx-auto">
             That's okay. Reach out and we'll figure out the right fit for your business together.

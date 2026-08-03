@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="lg:col-span-5">
           <div className="flex items-center gap-2 mb-5">
             <Logo size={32} />
-            <span className="font-display font-bold text-white">Peninsula Web Services</span>
+            <span className="font-wordmark font-semibold text-white text-xl tracking-[0.12em] uppercase">Peninsula Web Services</span>
           </div>
           <p className="font-display text-2xl md:text-3xl font-bold text-white leading-tight max-w-md">
             High-performance websites &amp; AI tools for modern businesses.

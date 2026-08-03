@@ -7,13 +7,13 @@ const posts = [
     tag: 'Local SEO',
     title: '5 Google ranking tips for Door County businesses',
     date: 'Coming soon',
-    accent: 'from-amber-500/30 to-amber-500/10',
+    accent: 'from-steel-500/30 to-steel-500/10',
   },
   {
     tag: 'AI',
     title: 'How a small shop saved 8 hours a week with an AI chatbot',
     date: 'Coming soon',
-    accent: 'from-amber-200 to-amber-50',
+    accent: 'from-steel-200 to-steel-50',
   },
   {
     tag: 'Web Design',
@@ -25,7 +25,7 @@ const posts = [
     tag: 'Marketing',
     title: 'Tourism season prep: a 4-week checklist',
     date: 'Coming soon',
-    accent: 'from-amber-500/30 to-amber-500/10',
+    accent: 'from-steel-500/30 to-steel-500/10',
   },
   {
     tag: 'Case Study',
@@ -99,7 +99,7 @@ export default function BlogCarousel() {
                   </span>
                   <span>{post.date}</span>
                 </div>
-                <h3 className="font-bold text-white leading-snug mb-4 group-hover:text-amber-500 transition-colors">
+                <h3 className="font-bold text-white leading-snug mb-4 group-hover:text-steel-500 transition-colors">
                   {post.title}
                 </h3>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white group-hover:gap-2.5 transition-all">

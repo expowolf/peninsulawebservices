@@ -31,7 +31,7 @@ export default function Contact() {
                 value={form.name}
                 onChange={onChange}
                 required
-                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-steel-500 focus:ring-1 focus:ring-steel-500 outline-none"
               />
             </div>
             <div>
@@ -41,7 +41,7 @@ export default function Contact() {
                 name="business"
                 value={form.business}
                 onChange={onChange}
-                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-steel-500 focus:ring-1 focus:ring-steel-500 outline-none"
               />
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function Contact() {
                 value={form.email}
                 onChange={onChange}
                 required
-                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-steel-500 focus:ring-1 focus:ring-steel-500 outline-none"
               />
             </div>
             <div>
@@ -65,7 +65,7 @@ export default function Contact() {
                 name="phone"
                 value={form.phone}
                 onChange={onChange}
-                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
+                className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-steel-500 focus:ring-1 focus:ring-steel-500 outline-none"
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function Contact() {
               onChange={onChange}
               required
               rows={6}
-              className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none resize-none"
+              className="w-full px-4 py-2 border border-neutral-700 rounded focus:border-steel-500 focus:ring-1 focus:ring-steel-500 outline-none resize-none"
               placeholder="What's your business and what do you need?"
             />
           </div>
@@ -92,12 +92,12 @@ export default function Contact() {
           <h2 className="text-xl font-bold text-white mb-4">Direct Contact</h2>
           <div className="space-y-3">
             <p>
-              <a href="tel:+19203709543" className="text-amber-500 font-semibold hover:underline">
+              <a href="tel:+19203709543" className="text-steel-500 font-semibold hover:underline">
                 (920) 370-9543
               </a>
             </p>
             <p>
-              <a href="mailto:dcpeninsulaweb@gmail.com" className="text-amber-500 font-semibold hover:underline">
+              <a href="mailto:dcpeninsulaweb@gmail.com" className="text-steel-500 font-semibold hover:underline">
                 dcpeninsulaweb@gmail.com
               </a>
             </p>

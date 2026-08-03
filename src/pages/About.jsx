@@ -61,8 +61,8 @@ export default function About() {
         {values.map(({ icon: Icon, title, text }, i) => (
           <Reveal key={title} delay={i * 80}>
             <div className="card h-full p-7 flex gap-4">
-              <div className="w-11 h-11 rounded-lg bg-amber-500/10 flex items-center justify-center shrink-0">
-                <Icon className="w-5 h-5 text-amber-500" />
+              <div className="w-11 h-11 rounded-lg bg-steel-500/10 flex items-center justify-center shrink-0">
+                <Icon className="w-5 h-5 text-steel-500" />
               </div>
               <div>
                 <h3 className="font-bold mb-1">{title}</h3>

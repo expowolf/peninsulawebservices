@@ -5,8 +5,8 @@
  * crisp inside the scroll card. Subtle blinking cursor keeps it alive.
  */
 const K = (c) => <span className="text-fuchsia-400">{c}</span>;       // keyword
-const T = (c) => <span className="text-amber-400">{c}</span>;          // tag
-const A = (c) => <span className="text-amber-300">{c}</span>;         // attr
+const T = (c) => <span className="text-steel-400">{c}</span>;          // tag
+const A = (c) => <span className="text-steel-300">{c}</span>;         // attr
 const S = (c) => <span className="text-emerald-300">{c}</span>;       // string
 const P = (c) => <span className="text-zinc-500">{c}</span>;          // punctuation
 const F = (c) => <span className="text-sky-300">{c}</span>;           // fn
@@ -19,7 +19,7 @@ const CODE_LINES = [
   <>{'      '}{P('<')}{T('p')}{P('>')}Designed to convert visitors.{P('</')}{T('p')}{P('>')}</>,
   <>{'      '}{P('<')}{T('Button')} {A('variant')}={S('"primary"')}{P('>')}</>,
   <>{'        '}Get a Quote</>,
-  <>{'      '}{P('</')}{T('Button')}{P('>')}<span className="inline-block w-1.5 h-3.5 bg-amber-400 ml-0.5 align-middle animate-pulse" /></>,
+  <>{'      '}{P('</')}{T('Button')}{P('>')}<span className="inline-block w-1.5 h-3.5 bg-steel-400 ml-0.5 align-middle animate-pulse" /></>,
   <>{'    '}{P('</')}{T('section')}{P('>')}</>,
   <>{'  '});</>,
   <>{'}'}</>,
@@ -31,7 +31,7 @@ export default function ClaudeCodeMockup() {
       {/* Title bar */}
       <div className="flex items-center gap-2 px-4 h-9 bg-zinc-800/80 border-b border-zinc-700 shrink-0">
         <span className="w-3 h-3 rounded-full bg-red-400/80" />
-        <span className="w-3 h-3 rounded-full bg-amber-400/80" />
+        <span className="w-3 h-3 rounded-full bg-steel-400/80" />
         <span className="w-3 h-3 rounded-full bg-green-400/80" />
         <span className="ml-3 text-[11px] text-zinc-400 font-mono">claude-code — building landing-page.jsx</span>
       </div>
@@ -47,7 +47,7 @@ export default function ClaudeCodeMockup() {
           </div>
 
           <div className="flex items-start gap-2.5">
-            <span className="w-6 h-6 rounded-md bg-amber-500 grid place-items-center text-[10px] font-bold shrink-0">✦</span>
+            <span className="w-6 h-6 rounded-md bg-steel-500 grid place-items-center text-[10px] font-bold shrink-0">✦</span>
             <div className="text-[13px] leading-relaxed">
               <p className="text-zinc-300 mb-2">Building your landing page now.</p>
               <ul className="space-y-1.5 font-mono text-[12px]">
@@ -55,7 +55,7 @@ export default function ClaudeCodeMockup() {
                 <li className="text-emerald-400">✓ Added responsive <span className="text-zinc-300">Pricing.jsx</span></li>
                 <li className="text-emerald-400">✓ Wired CTA → contact form</li>
                 <li className="text-zinc-400">
-                  <span className="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1.5 align-middle animate-pulse" />
+                  <span className="inline-block w-2 h-2 rounded-full bg-steel-400 mr-1.5 align-middle animate-pulse" />
                   Optimizing images &amp; SEO…
                 </li>
               </ul>
@@ -66,7 +66,7 @@ export default function ClaudeCodeMockup() {
         {/* Editor pane */}
         <div className="flex flex-col min-h-0 bg-[#1e1e2e]">
           <div className="flex items-center gap-3 px-4 h-8 bg-zinc-800/50 border-b border-zinc-800 shrink-0">
-            <span className="text-[11px] font-mono text-amber-400 border-b-2 border-amber-400 h-full flex items-center">Hero.jsx</span>
+            <span className="text-[11px] font-mono text-steel-400 border-b-2 border-steel-400 h-full flex items-center">Hero.jsx</span>
             <span className="text-[11px] font-mono text-zinc-500">Pricing.jsx</span>
           </div>
           <div className="flex-1 p-4 text-[11.5px] leading-[1.8] font-mono overflow-hidden">

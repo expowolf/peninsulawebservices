@@ -50,12 +50,12 @@ export default function Pricing() {
               <div
                 className={`relative rounded-xl p-8 h-full flex flex-col transition-all duration-300 ${
                   popular
-                    ? 'bg-neutral-900 border-2 border-amber-500 shadow-xl md:-translate-y-2'
+                    ? 'bg-neutral-900 border-2 border-steel-500 shadow-xl md:-translate-y-2'
                     : 'bg-neutral-900 border border-neutral-800 hover:-translate-y-1 hover:shadow-lg'
                 }`}
               >
                 {popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-steel-400 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
                     Most Popular
                   </span>
                 )}
@@ -68,7 +68,7 @@ export default function Pricing() {
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-neutral-300">
-                      <Check className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" aria-hidden="true" />
+                      <Check className="w-4 h-4 text-steel-500 shrink-0 mt-0.5" aria-hidden="true" />
                       {f}
                     </li>
                   ))}

@@ -57,7 +57,7 @@ export default function Home() {
           <ContainerScroll
             titleComponent={
               <>
-                <p className="text-sm uppercase tracking-[0.28em] font-semibold text-amber-400 mb-4">
+                <p className="text-sm uppercase tracking-[0.28em] font-semibold text-steel-400 mb-4">
                   AI-Accelerated Development
                 </p>
                 <h2 className="text-3xl md:text-[3.25rem] font-bold text-white leading-tight">

@@ -27,7 +27,7 @@ export default function IconTicker() {
       >
         {row.map(({ icon: Icon, label }, i) => (
           <div key={i} className="flex items-center gap-2 text-neutral-400 shrink-0">
-            <Icon className="w-5 h-5 text-amber-500" aria-hidden="true" />
+            <Icon className="w-5 h-5 text-steel-500" aria-hidden="true" />
             <span className="font-medium text-sm">{label}</span>
           </div>
         ))}
