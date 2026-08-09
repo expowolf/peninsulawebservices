@@ -12,20 +12,41 @@ import NumberFlow from '@number-flow/react';
 function CheckoutModal({ checkout, onClose }) {
   const planId = checkout?.planId;
   const url = checkout?.url;
+  // Whop's embed attribute expects a PLAN id (plan_…). Product ids (prod_…)
+  // won't render, so we only attempt the native embed for plan_ ids.
+  const usePlanEmbed = Boolean(planId && planId.startsWith('plan_'));
+  const embedRef = useRef(null);
+  const [embedFailed, setEmbedFailed] = useState(false);
 
   useEffect(() => {
     if (!checkout) return;
+    setEmbedFailed(false);
     const onKey = (e) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    // Nudge Whop's loader to (re)scan for the freshly-mounted embed div.
-    if (planId && window.wco?.scan) window.wco.scan();
+
+    let script;
+    let timer;
+    if (usePlanEmbed) {
+      // Re-inject the loader so it re-scans for the freshly-mounted embed div.
+      script = document.createElement('script');
+      script.src = 'https://js.whop.com/static/checkout/loader.js';
+      script.async = true;
+      document.body.appendChild(script);
+      // If nothing rendered, degrade to a clear CTA instead of a blank panel.
+      timer = setTimeout(() => {
+        if (!embedRef.current?.querySelector('iframe')) setEmbedFailed(true);
+      }, 3500);
+    }
+
     return () => {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = prev;
+      clearTimeout(timer);
+      script?.remove();
     };
-  }, [checkout, onClose, planId]);
+  }, [checkout, onClose, usePlanEmbed]);
 
   if (!checkout) return null;
   return (
@@ -58,25 +79,35 @@ function CheckoutModal({ checkout, onClose }) {
             </button>
           </div>
         </div>
-        {planId ? (
-          // Official Whop embedded checkout (loader.js renders into this div).
-          // Use the product attribute for prod_ IDs, plan attribute for plan_ IDs.
-          <div className="flex-1 w-full overflow-auto bg-white">
-            <div
-              {...(planId.startsWith('prod_')
-                ? { 'data-whop-checkout-product-id': planId }
-                : { 'data-whop-checkout-plan-id': planId })}
-              style={{ height: '100%' }}
-            />
+        {usePlanEmbed && !embedFailed ? (
+          // Official Whop embedded checkout (loader.js renders into this div)
+          <div ref={embedRef} className="flex-1 w-full overflow-auto bg-white">
+            <div data-whop-checkout-plan-id={planId} style={{ height: '100%' }} />
           </div>
         ) : (
-          // Fallback: load the marketing checkout URL in an iframe
-          <iframe
-            src={url}
-            title="Whop checkout"
-            className="flex-1 w-full bg-white"
-            allow="payment *; clipboard-write"
-          />
+          // No plan-id embed available (or it failed): try the URL in an
+          // iframe, with an always-visible escape hatch so nobody gets stuck.
+          <div className="flex-1 flex flex-col min-h-0">
+            <iframe
+              src={url}
+              title="Whop checkout"
+              className="flex-1 w-full bg-white"
+              allow="payment *; clipboard-write"
+            />
+            <div className="shrink-0 border-t border-neutral-800 p-4 text-center">
+              <p className="text-xs text-neutral-400 mb-2">
+                Checkout not loading? Complete your purchase securely on Whop.
+              </p>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 h-10 bg-steel-500 text-white text-sm font-semibold hover:bg-steel-400 transition-colors"
+              >
+                Continue to Secure Checkout <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
         )}
       </div>
     </div>
