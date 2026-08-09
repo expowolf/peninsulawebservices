@@ -30,7 +30,7 @@ const pricingPlans = [
       annual: 'https://whop.com/peninsula-web-services-299d/basic-website-d7/',
       onetime: 'https://whop.com/peninsula-web-services-299d/basic-website-06',
     },
-    planIds: { monthly: '', annual: '', onetime: '' },
+    planIds: { monthly: 'prod_Q9LuWJHUhs6FU', annual: 'prod_Q9LuWJHUhs6FU', onetime: 'prod_u9mVd9dZAZfyU' },
   },
   {
     name: 'Professional',
@@ -46,7 +46,7 @@ const pricingPlans = [
       annual: 'https://whop.com/peninsula-web-services-299d/proffessional-website',
       onetime: 'https://whop.com/peninsula-web-services-299d/proffesional-website',
     },
-    planIds: { monthly: '', annual: '', onetime: '' },
+    planIds: { monthly: 'prod_JLNTNXAuKOQhh', annual: 'prod_JLNTNXAuKOQhh', onetime: 'prod_KtNbb0P282YtP' },
   },
   {
     name: 'Deluxe',
@@ -61,7 +61,7 @@ const pricingPlans = [
       annual: 'https://whop.com/peninsula-web-services-299d/deluxe-website',
       onetime: 'https://whop.com/peninsula-web-services-299d/deluxe-website-72',
     },
-    planIds: { monthly: '', annual: '', onetime: '' },
+    planIds: { monthly: 'prod_FmjoYYecaSOWj', annual: 'prod_FmjoYYecaSOWj', onetime: 'prod_udZC0OtCEXz6a' },
   },
 ];
 

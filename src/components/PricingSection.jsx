@@ -59,9 +59,15 @@ function CheckoutModal({ checkout, onClose }) {
           </div>
         </div>
         {planId ? (
-          // Official Whop embedded checkout (loader.js renders into this div)
+          // Official Whop embedded checkout (loader.js renders into this div).
+          // Use the product attribute for prod_ IDs, plan attribute for plan_ IDs.
           <div className="flex-1 w-full overflow-auto bg-white">
-            <div data-whop-checkout-plan-id={planId} style={{ height: '100%' }} />
+            <div
+              {...(planId.startsWith('prod_')
+                ? { 'data-whop-checkout-product-id': planId }
+                : { 'data-whop-checkout-plan-id': planId })}
+              style={{ height: '100%' }}
+            />
           </div>
         ) : (
           // Fallback: load the marketing checkout URL in an iframe
