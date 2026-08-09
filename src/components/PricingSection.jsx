@@ -9,20 +9,25 @@ import NumberFlow from '@number-flow/react';
  * never leaves the site. Includes an "open in new tab" fallback in case Whop
  * blocks framing (X-Frame-Options / CSP). Locks body scroll while open.
  */
-function CheckoutModal({ url, onClose }) {
+function CheckoutModal({ checkout, onClose }) {
+  const planId = checkout?.planId;
+  const url = checkout?.url;
+
   useEffect(() => {
-    if (!url) return;
+    if (!checkout) return;
     const onKey = (e) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    // Nudge Whop's loader to (re)scan for the freshly-mounted embed div.
+    if (planId && window.wco?.scan) window.wco.scan();
     return () => {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = prev;
     };
-  }, [url, onClose]);
+  }, [checkout, onClose, planId]);
 
-  if (!url) return null;
+  if (!checkout) return null;
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm"
@@ -38,25 +43,35 @@ function CheckoutModal({ url, onClose }) {
         <div className="flex items-center justify-between px-4 h-12 border-b border-neutral-800 shrink-0">
           <span className="text-sm font-semibold text-white">Secure Checkout</span>
           <div className="flex items-center gap-3">
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-neutral-400 hover:text-white transition-colors"
-            >
-              Open in new tab <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            {url && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-neutral-400 hover:text-white transition-colors"
+              >
+                Open in new tab <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
             <button onClick={onClose} aria-label="Close checkout" className="text-neutral-400 hover:text-white transition-colors">
               <X className="w-5 h-5" />
             </button>
           </div>
         </div>
-        <iframe
-          src={url}
-          title="Whop checkout"
-          className="flex-1 w-full bg-white"
-          allow="payment *; clipboard-write"
-        />
+        {planId ? (
+          // Official Whop embedded checkout (loader.js renders into this div)
+          <div className="flex-1 w-full overflow-auto bg-white">
+            <div data-whop-checkout-plan-id={planId} style={{ height: '100%' }} />
+          </div>
+        ) : (
+          // Fallback: load the marketing checkout URL in an iframe
+          <iframe
+            src={url}
+            title="Whop checkout"
+            className="flex-1 w-full bg-white"
+            allow="payment *; clipboard-write"
+          />
+        )}
       </div>
     </div>
   );
@@ -149,11 +164,11 @@ export default function PricingSection({
   const [mode, setMode] = useState('monthly');
   const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
-  const [checkoutUrl, setCheckoutUrl] = useState(null);
+  const [checkout, setCheckout] = useState(null);
 
   return (
-    <PricingContext.Provider value={{ mode, setMode, openCheckout: setCheckoutUrl }}>
-      <CheckoutModal url={checkoutUrl} onClose={() => setCheckoutUrl(null)} />
+    <PricingContext.Provider value={{ mode, setMode, openCheckout: setCheckout }}>
+      <CheckoutModal checkout={checkout} onClose={() => setCheckout(null)} />
       <div
         ref={containerRef}
         onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
@@ -295,7 +310,8 @@ function PricingCard({ plan, index }) {
             type="button"
             onClick={() => {
               const url = (plan.links && plan.links[mode]) || plan.href;
-              if (url && url.startsWith('http')) openCheckout(url);
+              const planId = plan.planIds && plan.planIds[mode];
+              if (planId || (url && url.startsWith('http'))) openCheckout({ url, planId });
               else window.location.href = url || '#/contact';
             }}
             className={`inline-flex items-center justify-center w-full h-11 rounded-none px-8 text-sm font-semibold transition-colors ${

@@ -11,6 +11,11 @@ const PricingSection = lazy(() => import('../components/PricingSection.jsx'));
 
 // Whop checkout links per plan + billing mode. Annual has no dedicated link,
 // so it falls back to the monthly (subscription) checkout.
+//
+// `planIds` — OFFICIAL Whop embedded checkout. Fill these with your plan IDs
+// (look like "plan_XXXXXXXX", found on each plan in the Whop dashboard). When
+// present, checkout renders natively in-site; until then it falls back to the
+// `links` URL loaded in an iframe.
 const pricingPlans = [
   {
     name: 'Basic',
@@ -25,6 +30,7 @@ const pricingPlans = [
       annual: 'https://whop.com/peninsula-web-services-299d/basic-website-d7/',
       onetime: 'https://whop.com/peninsula-web-services-299d/basic-website-06',
     },
+    planIds: { monthly: '', annual: '', onetime: '' },
   },
   {
     name: 'Professional',
@@ -40,6 +46,7 @@ const pricingPlans = [
       annual: 'https://whop.com/peninsula-web-services-299d/proffessional-website',
       onetime: 'https://whop.com/peninsula-web-services-299d/proffesional-website',
     },
+    planIds: { monthly: '', annual: '', onetime: '' },
   },
   {
     name: 'Deluxe',
@@ -54,6 +61,7 @@ const pricingPlans = [
       annual: 'https://whop.com/peninsula-web-services-299d/deluxe-website',
       onetime: 'https://whop.com/peninsula-web-services-299d/deluxe-website-72',
     },
+    planIds: { monthly: '', annual: '', onetime: '' },
   },
 ];
 
