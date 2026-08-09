@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react';
 import HeroAG from '../components/HeroAG.jsx';
-import IconTicker from '../components/IconTicker.jsx';
 import MapSection from '../components/MapSection.jsx';
 import ClaudeCodeMockup from '../components/ClaudeCodeMockup.jsx';
 
@@ -12,10 +11,10 @@ const PricingSection = lazy(() => import('../components/PricingSection.jsx'));
 
 const pricingPlans = [
   {
-    name: 'Starter',
-    price: '79',        // per month (care plan)
-    yearlyPrice: '63',
-    oneTimePrice: '899', // one-time build
+    name: 'Basic',
+    price: '25',          // per month
+    yearlyPrice: '300',   // annual total (/yr)
+    oneTimePrice: '250',  // one-time build
     description: 'A polished one-page site to get online fast.',
     features: ['Single-page website', 'Mobile-first & fast', 'Contact form + maps', 'Basic on-page SEO'],
     buttonText: 'Get Started',
@@ -23,9 +22,9 @@ const pricingPlans = [
   },
   {
     name: 'Professional',
-    price: '149',
-    yearlyPrice: '119',
-    oneTimePrice: '1899',
+    price: '35',
+    yearlyPrice: '420',
+    oneTimePrice: '350',
     description: 'A complete multi-page site built to convert.',
     features: ['Up to 5 custom pages', 'Local SEO setup', 'Lead-capture forms', 'Analytics & 30 days support'],
     buttonText: 'Get Started',
@@ -33,10 +32,10 @@ const pricingPlans = [
     isPopular: true,
   },
   {
-    name: 'Growth',
-    price: '399',
-    yearlyPrice: '319',
-    oneTimePrice: '4999',
+    name: 'Deluxe',
+    price: '50',
+    yearlyPrice: '600',
+    oneTimePrice: '500',
     description: 'Full site plus AI tools and ongoing support.',
     features: ['Everything in Professional', 'AI chatbot & automation', 'Ongoing SEO & updates', 'Priority support'],
     buttonText: 'Contact Us',
@@ -48,7 +47,6 @@ export default function Home() {
   return (
     <div>
       <HeroAG />
-      <IconTicker />
       <MapSection />
 
       {/* Scroll-animated showcase: AI-assisted development */}

@@ -183,7 +183,7 @@ function PricingCard({ plan, index }) {
     : mode === 'annual' ? Number(plan.yearlyPrice)
     : Number(plan.oneTimePrice);
 
-  const period = mode === 'onetime' ? 'one-time' : 'mo';
+  const period = mode === 'onetime' ? 'one-time' : mode === 'annual' ? 'yr' : 'mo';
   const billedNote =
     mode === 'monthly' ? 'Billed monthly'
     : mode === 'annual' ? 'Billed annually'
