@@ -9,6 +9,8 @@ const ContainerScroll = lazy(() =>
 );
 const PricingSection = lazy(() => import('../components/PricingSection.jsx'));
 
+// Whop checkout links per plan + billing mode. Annual has no dedicated link,
+// so it falls back to the monthly (subscription) checkout.
 const pricingPlans = [
   {
     name: 'Basic',
@@ -18,7 +20,11 @@ const pricingPlans = [
     description: 'A polished one-page site to get online fast.',
     features: ['Single-page website', 'Mobile-first & fast', 'Contact form + maps', 'Basic on-page SEO'],
     buttonText: 'Get Started',
-    href: '#/contact',
+    links: {
+      monthly: 'https://whop.com/peninsula-web-services-299d/basic-website-d7/',
+      annual: 'https://whop.com/peninsula-web-services-299d/basic-website-d7/',
+      onetime: 'https://whop.com/peninsula-web-services-299d/basic-website-06',
+    },
   },
   {
     name: 'Professional',
@@ -28,8 +34,12 @@ const pricingPlans = [
     description: 'A complete multi-page site built to convert.',
     features: ['Up to 5 custom pages', 'Local SEO setup', 'Lead-capture forms', 'Analytics & 30 days support'],
     buttonText: 'Get Started',
-    href: '#/contact',
     isPopular: true,
+    links: {
+      monthly: 'https://whop.com/peninsula-web-services-299d/proffessional-website',
+      annual: 'https://whop.com/peninsula-web-services-299d/proffessional-website',
+      onetime: 'https://whop.com/peninsula-web-services-299d/proffesional-website',
+    },
   },
   {
     name: 'Deluxe',
@@ -38,8 +48,12 @@ const pricingPlans = [
     oneTimePrice: '500',
     description: 'Full site plus AI tools and ongoing support.',
     features: ['Everything in Professional', 'AI chatbot & automation', 'Ongoing SEO & updates', 'Priority support'],
-    buttonText: 'Contact Us',
-    href: '#/contact',
+    buttonText: 'Get Started',
+    links: {
+      monthly: 'https://whop.com/peninsula-web-services-299d/deluxe-website',
+      annual: 'https://whop.com/peninsula-web-services-299d/deluxe-website',
+      onetime: 'https://whop.com/peninsula-web-services-299d/deluxe-website-72',
+    },
   },
 ];
 

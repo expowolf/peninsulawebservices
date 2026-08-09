@@ -232,11 +232,13 @@ function PricingCard({ plan, index }) {
 
         <div className="mt-auto pt-8">
           <a
-            href={plan.href}
-            className={`inline-flex items-center justify-center w-full h-11 rounded-lg px-8 text-sm font-semibold transition-colors ${
+            href={(plan.links && plan.links[mode]) || plan.href || '#/contact'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center justify-center w-full h-11 rounded-none px-8 text-sm font-semibold transition-colors ${
               plan.isPopular
-                ? 'bg-steel-500 text-white hover:bg-steel-500'
-                : 'border border-white/20 text-white hover:bg-neutral-900/10'
+                ? 'bg-steel-500 text-white hover:bg-steel-400'
+                : 'border border-white/20 text-white hover:bg-white/10'
             }`}
           >
             {plan.buttonText}
