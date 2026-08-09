@@ -1,8 +1,66 @@
 import { motion, useSpring } from 'framer-motion';
 import { useState, useRef, useEffect, createContext, useContext } from 'react';
 import confetti from 'canvas-confetti';
-import { Check, Star } from 'lucide-react';
+import { Check, Star, X, ExternalLink } from 'lucide-react';
 import NumberFlow from '@number-flow/react';
+
+/**
+ * In-site checkout modal: loads the Whop checkout in an iframe so the visitor
+ * never leaves the site. Includes an "open in new tab" fallback in case Whop
+ * blocks framing (X-Frame-Options / CSP). Locks body scroll while open.
+ */
+function CheckoutModal({ url, onClose }) {
+  useEffect(() => {
+    if (!url) return;
+    const onKey = (e) => e.key === 'Escape' && onClose();
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [url, onClose]);
+
+  if (!url) return null;
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Checkout"
+    >
+      <div
+        className="relative w-full max-w-3xl h-[85vh] bg-neutral-950 border border-neutral-800 overflow-hidden flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between px-4 h-12 border-b border-neutral-800 shrink-0">
+          <span className="text-sm font-semibold text-white">Secure Checkout</span>
+          <div className="flex items-center gap-3">
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-neutral-400 hover:text-white transition-colors"
+            >
+              Open in new tab <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <button onClick={onClose} aria-label="Close checkout" className="text-neutral-400 hover:text-white transition-colors">
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+        <iframe
+          src={url}
+          title="Whop checkout"
+          className="flex-1 w-full bg-white"
+          allow="payment *; clipboard-write"
+        />
+      </div>
+    </div>
+  );
+}
 
 /**
  * Interactive pricing with a 3-way billing toggle (Monthly / Annual / One-time),
@@ -81,7 +139,7 @@ const MODES = [
   { id: 'onetime', label: 'One-time', note: 'Pay once' },
 ];
 
-const PricingContext = createContext({ mode: 'monthly', setMode: () => {} });
+const PricingContext = createContext({ mode: 'monthly', setMode: () => {}, openCheckout: () => {} });
 
 export default function PricingSection({
   plans,
@@ -91,9 +149,11 @@ export default function PricingSection({
   const [mode, setMode] = useState('monthly');
   const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+  const [checkoutUrl, setCheckoutUrl] = useState(null);
 
   return (
-    <PricingContext.Provider value={{ mode, setMode }}>
+    <PricingContext.Provider value={{ mode, setMode, openCheckout: setCheckoutUrl }}>
+      <CheckoutModal url={checkoutUrl} onClose={() => setCheckoutUrl(null)} />
       <div
         ref={containerRef}
         onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
@@ -175,7 +235,7 @@ function BillingToggle() {
 }
 
 function PricingCard({ plan, index }) {
-  const { mode } = useContext(PricingContext);
+  const { mode, openCheckout } = useContext(PricingContext);
   const isDesktop = useMediaQuery('(min-width: 1024px)');
 
   const value =
@@ -231,10 +291,13 @@ function PricingCard({ plan, index }) {
         </ul>
 
         <div className="mt-auto pt-8">
-          <a
-            href={(plan.links && plan.links[mode]) || plan.href || '#/contact'}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => {
+              const url = (plan.links && plan.links[mode]) || plan.href;
+              if (url && url.startsWith('http')) openCheckout(url);
+              else window.location.href = url || '#/contact';
+            }}
             className={`inline-flex items-center justify-center w-full h-11 rounded-none px-8 text-sm font-semibold transition-colors ${
               plan.isPopular
                 ? 'bg-steel-500 text-white hover:bg-steel-400'
@@ -242,7 +305,7 @@ function PricingCard({ plan, index }) {
             }`}
           >
             {plan.buttonText}
-          </a>
+          </button>
         </div>
       </div>
     </motion.div>
